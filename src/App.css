@@ -1,6 +1,6 @@
 .calculator {
   max-width: 800px;
-  margin: 1.5em auto;
+  margin: 1.5em auto 0.5em;
   background-color: white;
   box-shadow: 0 0 4px 1px #AAA;
   padding: 1em 0;
