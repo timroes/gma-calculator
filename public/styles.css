@@ -1,0 +1,28 @@
+body,html {
+  padding: 0;
+  margin: 0;
+  background: #F7F7F7;
+  font-size: 18px;
+}
+
+.banner {
+  background-color: #009B8F;
+  color: white;
+  padding: 1.5em 0.5em;
+}
+
+.banner h1 {
+  font-weight: normal;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+input[type="date"],
+select {
+  border: 1px solid #CCC;
+  background: white;
+  font-size: 0.9em;
+  padding: 0.3em;
+  border-radius: 0.2em;
+}

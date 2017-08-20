@@ -1,0 +1,56 @@
+.calculator {
+  max-width: 800px;
+  margin: 1.5em auto;
+  background-color: white;
+  box-shadow: 0 0 4px 1px #AAA;
+  padding: 1em 0;
+  box-sizing: border-box;
+}
+
+.calculator__row {
+  padding: 0 1em;
+}
+
+.calculator__row--right {
+  text-align: right;
+}
+
+.calculator__row + .calculator__row {
+  margin-top: 1em;
+}
+
+label {
+  margin-right: 0.5em;
+}
+
+input + label {
+  margin-left: 1em;
+}
+
+.calculator__warning {
+  border-left: 3px solid rgb(222, 181, 7);
+  border-right: 3px solid rgb(222, 181, 7);
+  background: #fffff0;
+  padding: 0.5em;
+}
+
+.pdfdownload {
+  background: #CB0606;
+  color: white;
+  border-radius: 0.3em;
+  font-size: 1.1em;
+  margin-left: 0.8em;
+  border: none;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.pdfdownload:hover,
+.pdfdownload:focus {
+  background: #ff5151;
+}
+
+.sum {
+  font-weight: bold;
+  margin-left: 0.5em;
+}

@@ -1,0 +1,11 @@
+{
+  "short_name": "GMA Calculator",
+  "name": "German Meal Allowance Calculator",
+  "icons": [
+
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#009B8F",
+  "background_color": "#F7F7F7"
+}

@@ -1,0 +1,20 @@
+.daylist {
+	margin: 1em 0;
+	padding: 1em;
+	width: 100%;
+	background: #F9F9F9;
+	box-shadow: inset 0px 11px 8px -10px #CCC,
+			 inset 0px -11px 8px -10px #CCC;
+}
+
+th {
+	text-align: left;
+}
+
+tr:hover {
+	background-color: #FFF;
+}
+
+label + label {
+	margin-left: 1.5em;
+}
