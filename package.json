@@ -2,7 +2,9 @@
   "name": "gma-calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://timroes.github.io/gma-calculator/",
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "moment": "^2.18.1",
     "pdfmake": "^0.1.32",
     "react": "^15.6.1",
@@ -10,6 +12,8 @@
     "react-scripts": "1.0.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
