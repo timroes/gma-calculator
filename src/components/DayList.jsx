@@ -39,8 +39,14 @@ export class DayList extends Component {
 				<thead>
 					<tr>
 						<th colSpan="2" scope="colgroup">Date</th>
-						<th scope="col">Meals paid by company</th>
-						<th scope="col">Sum</th>
+						<th scope="col">
+							Meals paid by company
+							<button type="button" role="tooltip" className="daylist__info-icon" aria-labelledby="paidmeal-info"></button>
+							<div id="paidmeal-info" className="daylist__info" aria-hidden="true">
+								Mark here each meal, that your company or a colleague paid for (e.g. hotel breakfast).
+							</div>
+						</th>
+						<th scope="col" className="daylist__sum-header">Sum</th>
 					</tr>
 				</thead>
 				<tbody>
