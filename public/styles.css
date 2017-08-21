@@ -3,6 +3,7 @@ body,html {
   margin: 0;
   background: #F7F7F7;
   font-size: 18px;
+  font-family: sans-serif;
 }
 
 .banner {
@@ -20,6 +21,7 @@ body,html {
 
 input[type="date"],
 select {
+  font-family: inherit;
   border: 1px solid #CCC;
   background: white;
   font-size: 0.9em;

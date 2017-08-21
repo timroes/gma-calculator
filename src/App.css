@@ -43,6 +43,7 @@ input + label {
   border: none;
   transition: background 0.2s ease;
   cursor: pointer;
+  font-family: inherit;
 }
 
 .pdfdownload:hover,
