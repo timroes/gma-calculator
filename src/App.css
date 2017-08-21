@@ -50,8 +50,13 @@ input + label {
   font-family: inherit;
 }
 
-.pdfdownload:hover,
-.pdfdownload:focus {
+.pdfdownload:disabled {
+  cursor: not-allowed;
+  background: #666;
+}
+
+.pdfdownload:hover:not(:disabled),
+.pdfdownload:focus:not(:disabled) {
   background: #ff5151;
 }
 
