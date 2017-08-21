@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
+import Select from 'react-select';
 import rates from '../data/rates';
+
+import './CountryList.css';
+import 'react-select/dist/react-select.css';
 
 export class CountryList extends Component {
 
-	renderCountryOption = (country, index) => {
-		return <option key={country.code} value={index}>{country.name}</option>;
+	constructor(props) {
+		super(props);
+		this._options = rates.map((country, index) => ({
+			value: index,
+			label: country.name
+		}));
+		this.state = { value: 0	};
 	}
 
 	handleChange = (ev) => {
-		this.props.onChange(rates[ev.target.value]);
+		this.props.onChange(rates[ev.value]);
+		this.setState({
+			value: ev.value
+		});
 	}
 
 	render() {
 		return (
-			<select id="country" onChange={this.handleChange}>
-				{ rates.map(this.renderCountryOption) }
-			</select>
+			<Select
+				className="countrylist__select"
+				onChange={this.handleChange}
+				options={this._options}
+				value={this.state.value}
+				clearable={false}
+			>
+			</Select>
 		);
 	}
 }

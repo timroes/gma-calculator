@@ -52,8 +52,9 @@ class App extends Component {
     return (
       <form aria-label="Calculator" className="calculator">
         <div className="calculator__row">
-          <label htmlFor="country">Trip to country</label>
-          <CountryList onChange={this.handleCountryChange}/>
+          <label className="calculator__country-label">Trip to country
+            <CountryList onChange={this.handleCountryChange}/>
+          </label>
         </div>
 
         <div className="calculator__row">
