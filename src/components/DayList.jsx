@@ -43,7 +43,7 @@ export class DayList extends Component {
 							Meals paid by company
 							<button type="button" role="tooltip" className="daylist__info-icon" aria-labelledby="paidmeal-info"></button>
 							<div id="paidmeal-info" className="daylist__info" aria-hidden="true">
-								Mark here each meal, that your company or a colleague paid for (e.g. hotel breakfast).
+								Mark each meal, that your company or a colleague paid for (e.g. hotel breakfast).
 							</div>
 						</th>
 						<th scope="col" className="daylist__sum-header">Sum</th>
