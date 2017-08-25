@@ -5,6 +5,7 @@
   box-shadow: 0 0 4px 1px #AAA;
   padding: 1em 0;
   box-sizing: border-box;
+  text-align: left;
 }
 
 .calculator__row {

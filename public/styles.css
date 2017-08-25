@@ -26,6 +26,44 @@ body,html {
   white-space: nowrap;
 }
 
+main {
+  text-align: center;
+}
+
+.loading-spinner {
+  margin: 2em;
+}
+
+.loading-spinner rect {
+  animation: loading-anim 0.45s infinite linear;
+  animation-direction: alternate;
+}
+
+.loading-spinner rect:first-child {
+    animation-delay: 0s;
+}
+
+.loading-spinner rect:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.loading-spinner rect:last-child {
+  animation-delay: 0.3s;
+}
+
+@keyframes loading-anim {
+  from {
+    height: 10px;
+    opacity: 0.2;
+    y: 10;
+  }
+  to {
+    height: 20px;
+    opacity: 1.0;
+    y: 5;
+  }
+}
+
 input[type="date"],
 select {
   font-family: inherit;
