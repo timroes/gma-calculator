@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import rates from '../data/rates';
+import { getAllCountries } from '../countries';
 
 import './CountryList.css';
 import 'react-select/dist/react-select.css';
@@ -9,15 +9,19 @@ export class CountryList extends Component {
 
 	constructor(props) {
 		super(props);
-		this._options = rates.map((country, index) => ({
-			value: index,
+
+		this._options = getAllCountries().map(country => ({
+			value: country.code,
 			label: country.name
 		}));
-		this.state = { value: 0	};
+
+		this.state = {
+			value: this.props.defaultValue,
+		};
 	}
 
 	handleChange = (ev) => {
-		this.props.onChange(rates[ev.value]);
+		this.props.onChange(ev.value);
 		this.setState({
 			value: ev.value
 		});

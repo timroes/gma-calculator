@@ -1,5 +1,6 @@
 import pdfmake from 'pdfmake/build/pdfmake.js';
 import vfsFonts from 'pdfmake/build/vfs_fonts.js';
+import { getCountryNameByCode } from './countries';
 
 // Hack to get this working with webpack (see https://github.com/bpampuch/pdfmake/issues/939#issuecomment-318846576)
 pdfmake.vfs = vfsFonts.pdfMake.vfs;
@@ -20,26 +21,16 @@ export class PdfExporter {
 			day.date.format('YYYY-MM-DD (ddd)'),
 			{ text: `${day.baseRate.toFixed(2)} EUR`, style: 'rate' },
 			paidMeals,
-			{ text: `${day.rate.toFixed(2)} EUR`, style: 'rate' }
+			{ text: `${day.rate.toFixed(2)} EUR${day.fallbackFrom ? '*' : ''}`, style: 'rate' }
 		];
 	}
 
 	_generateDocDefinition() {
 		const days = this.calculationService.dayList;
-		const deductions = this.calculationService.deductions;
-		return {
+		const docDef = {
 			content: [
 				{ text: 'German Meal Allowance', style: 'header' },
-				{ text: `Location: ${this.calculationService.countryName}`, style: 'location' },
-				{ text: 'Deduction per company provided meal:' },
-				{
-					ul: [
-						`Breakfast: ${deductions.breakfast.toFixed(2)} EUR`,
-						`Lunch: ${deductions.lunch.toFixed(2)} EUR`,
-						`Dinner: ${deductions.dinner.toFixed(2)} EUR`
-					],
-					style: 'list'
-				},
+				{ text: `Location: ${getCountryNameByCode(this.calculationService.getCountry())}`, style: 'location' },
 				{
 					table: {
 						body: [
@@ -74,12 +65,27 @@ export class PdfExporter {
 				},
 				rate: {
 					alignment: 'right'
+				},
+				fallbackWarning: {
+					bold: true,
+					color: 'red',
+					margin: [0, 10, 0, 0]
 				}
 			},
 			defaultStyle: {
 				lineHeight: 1.3
 			}
 		};
+
+		// If any day used a fallback rate, show a warning below the table.
+		if (days.filter(day => day.fallbackFrom).length > 0) {
+			docDef.content.push({
+				text: '* No rates for this year yet. Used older rates for these dates.',
+				style: 'fallbackWarning'
+			});
+		}
+
+		return docDef;
 	}
 
 	download() {

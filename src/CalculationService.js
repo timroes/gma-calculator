@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { getRateForCountry } from './rates';
 
 export class CalculationService {
 
@@ -18,26 +19,13 @@ export class CalculationService {
 		this.update();
 	}
 
-	set country(val) {
-		this._country = val;
-		this._full = val.full;
-		this._reduced = val.reduced;
-		this._reduceBreakfast = val.full * 0.2;
-		this._reduceLunch = val.full * 0.4;
-		this._reduceDinner = val.full * 0.4;
+	setCountry(countryCode) {
+		this._country = countryCode;
 		this.update();
 	}
 
-	get countryName() {
-		return this._country.name;
-	}
-
-	get deductions() {
-		return {
-			breakfast: this._reduceBreakfast,
-			lunch: this._reduceLunch,
-			dinner: this._reduceDinner
-		};
+	getCountry() {
+		return this._country;
 	}
 
 	/**
@@ -58,21 +46,24 @@ export class CalculationService {
 		if (!this._country) {
 			return 0;
 		}
-		const baseRate = isStartEndDate ? this._reduced : this._full;
+		// Get the base rates for the specific date and country
+		const baseRatesForDay = getRateForCountry(this._country, day.year());
+		const baseRate = isStartEndDate ? baseRatesForDay.reduced : baseRatesForDay.full;
 		let price = baseRate;
 		const id = day.format('YYYY-MM-DD');
 		if (this.exclude.breakfast[id]) {
-			price -= this._reduceBreakfast;
+			price -= baseRatesForDay.full * 0.2;
 		}
 		if (this.exclude.lunch[id]) {
-			price -= this._reduceLunch;
+			price -= baseRatesForDay.full * 0.4;
 		}
 		if (this.exclude.dinner[id]) {
-			price -= this._reduceDinner;
+			price -= baseRatesForDay.full * 0.4;
 		}
 		return {
 			baseRate,
-			rate: Math.max(price, 0)
+			rate: Math.max(price, 0),
+			fallbackFrom: baseRatesForDay.fallbackFrom
 		};
 	}
 
@@ -84,7 +75,7 @@ export class CalculationService {
 			const dateString = day.format('YYYY-MM-DD');
 			const isStartDate = day.isSame(this._from, 'day');
 			const isEndDate = day.isSame(this._to, 'day');
-			const { rate, baseRate } = this.getPriceForDay(day, isStartDate || isEndDate);
+			const dayRate = this.getPriceForDay(day, isStartDate || isEndDate);
 			this.dayList.push({
 				id: dateString,
 				date: day,
@@ -93,10 +84,9 @@ export class CalculationService {
 				excludeDinner: !!this.exclude.dinner[dateString],
 				isStartDate,
 				isEndDate,
-				baseRate,
-				rate
+				...dayRate
 			});
-			this.total += rate;
+			this.total += dayRate.rate;
 		});
 	}
 

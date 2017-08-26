@@ -29,6 +29,14 @@ export class DayList extends Component {
 					</label>
 				</td>
 				<td>
+					{ day.fallbackFrom &&
+						<span>
+							<button type="button" className="daylist__warning-icon" role="tooltip" aria-labelledby={`${day.id}-fallbackRate`}></button>
+							<div id={`${day.id}-fallbackRate`} className="daylist__warning" aria-hidden="true">
+								There are no rates for {day.date.year()} yet. Used rate from {day.fallbackFrom}.
+							</div>
+						</span>
+					}
 					{ day.rate.toFixed(2) } €
 				</td>
 			</tr>);

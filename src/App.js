@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { CountryList, DayList } from './components';
 import { CalculationService } from './CalculationService';
 import { PdfExporter } from './PdfExporter';
-import rates from './data/rates';
 
 import './App.css';
+
+const DEFAULT_COUNTRY = 'DE';
 
 class App extends Component {
 
@@ -12,12 +13,13 @@ class App extends Component {
     super();
     this.service = new CalculationService();
     this.pdfExporter = new PdfExporter(this.service);
-    this.service.country = rates[0];
     this.state = {
       total: 0,
       days: 0,
       dayList: []
     };
+
+    this.service.setCountry(DEFAULT_COUNTRY);
   }
 
   update() {
@@ -39,7 +41,7 @@ class App extends Component {
   };
 
   handleCountryChange = (country) => {
-    this.service.country = country;
+    this.service.setCountry(country);
     this.update();
   };
 
@@ -53,7 +55,7 @@ class App extends Component {
       <form aria-label="Calculator" className="calculator">
         <div className="calculator__row">
           <label className="calculator__country-label">Trip to country
-            <CountryList onChange={this.handleCountryChange}/>
+            <CountryList onChange={this.handleCountryChange} defaultValue={DEFAULT_COUNTRY}/>
           </label>
         </div>
 
