@@ -11,7 +11,7 @@ th {
 	text-align: left;
 }
 
-tr:hover {
+tbody tr:hover {
 	background-color: #FFF;
 }
 
