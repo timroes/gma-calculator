@@ -1,0 +1,7 @@
+.daterange__label + .daterange__label {
+	margin-left: 1em;
+}
+
+.daterange__input {
+	margin-left: 0.5em;
+}

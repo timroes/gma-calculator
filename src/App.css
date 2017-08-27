@@ -29,16 +29,9 @@
   margin-top: 1em;
 }
 
-label {
-  margin-right: 0.5em;
-}
-
 .calculator__country-label {
   display: block;
-}
-
-input + label {
-  margin-left: 1em;
+  margin-right: 0.5em;
 }
 
 .calculator__warning {

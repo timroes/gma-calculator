@@ -15,15 +15,15 @@ export class DayList extends Component {
 					{ !day.isStartDate && day.isEndDate && ' (Departure day)'}
 				</td>
 				<td>
-					<label>
+					<label className="daylist__exclude-label">
 						<input type="checkbox" onChange={onExcludeChange.bind(this, 'breakfast')}/>
 						Breakfast
 					</label>
-					<label>
+					<label className="daylist__exclude-label">
 						<input type="checkbox" onChange={onExcludeChange.bind(this, 'lunch')}/>
 						Lunch
 					</label>
-					<label>
+					<label className="daylist__exclude-label">
 						<input type="checkbox" onChange={onExcludeChange.bind(this, 'dinner')}/>
 						Dinner
 					</label>

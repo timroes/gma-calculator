@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CountryList, DayList } from './components';
+import { CountryList, DateRange, DayList } from './components';
 import { CalculationService } from './CalculationService';
 import { PdfExporter } from './PdfExporter';
 
@@ -36,7 +36,13 @@ class App extends Component {
   };
 
   handleDateChange = (ev) => {
-    this.service[ev.target.id] = ev.target.value;
+    if (ev.invalid) {
+      this.service.from = null;
+      this.service.to = null;
+    } else {
+      this.service.from = ev.from;
+      this.service.to = ev.to;
+    }
     this.update();
   };
 
@@ -66,12 +72,9 @@ class App extends Component {
             defaultValue={DEFAULT_COUNTRY} />
         </div>
 
-        <div className="calculator__row">
-          <label htmlFor="from">From</label>
-          <input type="date" ref="from" id="from" onChange={this.handleDateChange}/>
-          <label htmlFor="to">To</label>
-          <input type="date" ref="to" id="to" onChange={this.handleDateChange}/>
-        </div>
+        <DateRange
+          className="calculator__row"
+          onChange={this.handleDateChange}/>
 
         { this.state.dayList.length === 1 &&
           <div className="calculator__warning calculator__row">

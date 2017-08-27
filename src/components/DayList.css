@@ -20,7 +20,7 @@ td:last-child {
 	text-align: right;
 }
 
-label + label {
+.daylist__exclude-label + .daylist__exclude-label {
 	margin-left: 1.5em;
 }
 
