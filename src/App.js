@@ -53,10 +53,17 @@ class App extends Component {
   render() {
     return (
       <form aria-label="Calculator" className="calculator">
-        <div className="calculator__row">
-          <label className="calculator__country-label">Trip to country
-            <CountryList onChange={this.handleCountryChange} defaultValue={DEFAULT_COUNTRY}/>
+        <div className="calculator__row calculator__row--country">
+          <label
+            htmlFor="country-list"
+            className="calculator__country-label">
+            Trip to country
           </label>
+          <CountryList
+            id="country-list"
+            className="calculator__country-select"
+            onChange={this.handleCountryChange}
+            defaultValue={DEFAULT_COUNTRY} />
         </div>
 
         <div className="calculator__row">

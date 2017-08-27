@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import Select from 'react-select';
 import { getAllCountries } from '../countries';
 
@@ -28,12 +29,14 @@ export class CountryList extends Component {
 	}
 
 	render() {
+		const classes = classnames('countrylist__select', this.props.className);
 		return (
 			<Select
-				className="countrylist__select"
+				className={classes}
 				onChange={this.handleChange}
 				options={this._options}
 				value={this.state.value}
+				inputProps={{ id: this.props.id }}
 				clearable={false}
 			>
 			</Select>

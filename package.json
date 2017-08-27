@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://timroes.github.io/gma-calculator/",
   "dependencies": {
+    "classnames": "^2.2.5",
     "gh-pages": "^1.0.0",
     "moment": "^2.18.1",
     "pdfmake": "^0.1.32",

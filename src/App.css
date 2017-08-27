@@ -16,6 +16,15 @@
   text-align: right;
 }
 
+.calculator__row--country {
+  display: flex;
+  align-items: center;
+}
+
+.calculator__country-select {
+  flex: 1 0 auto;
+}
+
 .calculator__row + .calculator__row {
   margin-top: 1em;
 }
