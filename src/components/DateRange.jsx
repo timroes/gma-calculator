@@ -1,39 +1,48 @@
 import React, { Component } from 'react';
+import DatePicker from 'react-datepicker';
 
+import 'react-datepicker/dist/react-datepicker.css';
 import './DateRange.css';
 
 export class DateRange extends Component {
 
-	handleFromChange = (ev) => {
-		this.props.onChange(ev.target.value, this.props.to);
+	handleFromChange = (value) => {
+		this.props.onChange(value, this.props.to);
 	}
 
-	handleToChange = (ev) => {
-		this.props.onChange(this.props.from, ev.target.value);
+	handleToChange = (value) => {
+		this.props.onChange(this.props.from, value);
 	}
 
 	render() {
 		return (<div className={this.props.className}>
-			<label className="daterange__label">
+			<label
+				htmlFor={`${this.props.idPrefix}_from`}
+				className="daterange__label">
 				From
-				<input
-					type="date"
-					className="daterange__input"
-					value={this.props.from ? this.props.from.format('YYYY-MM-DD') : ''}
-					onChange={this.handleFromChange}
-					disabled={this.props.disableFrom}
-					required="required"/>
 			</label>
-			<label className="daterange__label">
+			<DatePicker
+				id={`${this.props.idPrefix}_from`}
+				className="daterange__input"
+				value={this.props.from ? this.props.from.format('YYYY-MM-DD') : ''}
+				selected={this.props.from}
+				onChange={this.handleFromChange}
+				disabled={this.props.disableFrom}
+				shouldCloseOnSelect={true}
+				required="required"/>
+			<label
+				htmlFor={`${this.props.idPrefix}_to`}
+				className="daterange__label">
 				To
-				<input
-					type="date"
-					className="daterange__input"
-					value={this.props.to ? this.props.to.format('YYYY-MM-DD') : ''}
-					min={this.props.from ? this.props.from.format('YYYY-MM-DD') : null}
-					onChange={this.handleToChange}
-					required="required"/>
 			</label>
+			<DatePicker
+				id={`${this.props.idPrefix}_to`}
+				className="daterange__input"
+				value={this.props.to ? this.props.to.format('YYYY-MM-DD') : ''}
+				selected={this.props.to}
+				minDate={this.props.from}
+				onChange={this.handleToChange}
+				required="required"/>
 		</div>);
 	}
 }

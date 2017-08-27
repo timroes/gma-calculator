@@ -64,6 +64,7 @@ main {
   }
 }
 
+input[type="text"],
 input[type="date"],
 select {
   font-family: inherit;

@@ -93,6 +93,7 @@ class App extends Component {
             value={segment.country} />
         </div>
         <DateRange
+          idPrefix={`daterange${index}`}
           className="calculator__row"
           from={segment.from}
           to={segment.to}

@@ -1,7 +1,15 @@
-.daterange__label + .daterange__label {
+.daterange__label:not(:first-child) {
 	margin-left: 1em;
 }
 
 .daterange__input {
 	margin-left: 0.5em;
+}
+
+.daterange__input:disabled {
+	background-color: #EEE;
+}
+
+.daterange__label + div {
+	display: inline-block;
 }
