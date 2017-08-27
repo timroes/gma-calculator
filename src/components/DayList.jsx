@@ -8,6 +8,11 @@ export class DayList extends Component {
 			this.props.onExcludeChange(day.date, type, ev.target.checked);
 		};
 		return (<tr key={day.id}>
+				{ this.props.showCountries &&
+					<td>
+						<abbr className="daylist__country" title={day.countryName}>{day.country}</abbr>
+					</td>
+				}
 				<td>{ day.date.format('ddd') }</td>
 				<td>
 					{ day.date.format('YYYY-MM-DD') }
@@ -46,6 +51,9 @@ export class DayList extends Component {
 		return (<table className="daylist">
 				<thead>
 					<tr>
+						{this.props.showCountries &&
+							<th scope="col">Country</th>
+						}
 						<th colSpan="2" scope="colgroup">Date</th>
 						<th scope="col">
 							Meals paid by company

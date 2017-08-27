@@ -15,10 +15,6 @@ export class CountryList extends Component {
 			value: country.code,
 			label: country.name
 		}));
-
-		this.state = {
-			value: this.props.defaultValue,
-		};
 	}
 
 	handleChange = (ev) => {
@@ -35,7 +31,7 @@ export class CountryList extends Component {
 				className={classes}
 				onChange={this.handleChange}
 				options={this._options}
-				value={this.state.value}
+				value={this.props.value}
 				inputProps={{ id: this.props.id }}
 				clearable={false}
 			>

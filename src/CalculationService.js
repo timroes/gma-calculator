@@ -1,5 +1,6 @@
 import moment from 'moment';
 import { getRateForCountry } from './rates';
+import { getCountryNameByCode } from './countries';
 
 export class CalculationService {
 
@@ -9,45 +10,30 @@ export class CalculationService {
 		dinner: {}
 	};
 
-	set to(val) {
-		this._to = val ? moment(val) : null;
-		this.update();
-	}
-
-	set from(val) {
-		this._from = val ? moment(val) : null;
-		this.update();
-	}
-
-	setCountry(countryCode) {
-		this._country = countryCode;
-		this.update();
-	}
-
-	getCountry() {
-		return this._country;
-	}
-
 	/**
 	 * Iterate over each days in the selection.
 	 * Calls the provided callback and passes the date as a parameter.
 	 */
-	forEachDay(callback) {
-		if (this._from) {
-			const curDate = moment(this._from).startOf('day');
-			const endDate = moment(this._to || this._from).startOf('day');
-			do {
-				callback(moment(curDate));
-			} while(curDate.add(1, 'days').diff(endDate) <= 0);
+	forEachDay(segments, callback) {
+		if (segments.length < 1) {
+			throw new Error('There should always be at least one segment.');
 		}
+
+		segments.forEach(segment => {
+			if (segment.from) {
+				const curDate = moment(segment.from).startOf('day');
+				const endDate = moment(segment.to).startOf('day');
+				do {
+					callback(moment(curDate), segment);
+				} while(curDate.add(1, 'days').diff(endDate) <= 0);
+			}
+		});
+
 	}
 
-	getPriceForDay(day, isStartEndDate) {
-		if (!this._country) {
-			return 0;
-		}
+	getPriceForDay(day, country, isStartEndDate) {
 		// Get the base rates for the specific date and country
-		const baseRatesForDay = getRateForCountry(this._country, day.year());
+		const baseRatesForDay = getRateForCountry(country, day.year());
 		const baseRate = isStartEndDate ? baseRatesForDay.reduced : baseRatesForDay.full;
 		let price = baseRate;
 		const id = day.format('YYYY-MM-DD');
@@ -67,18 +53,24 @@ export class CalculationService {
 		};
 	}
 
-	update() {
-		this.dayList = [];
-		this.total = 0;
+	setExclude(day, type, excluded) {
+		this.exclude[type][day.format('YYYY-MM-DD')] = excluded;
+	}
 
-		this.forEachDay(day => {
+	calculate(segments) {
+		const days = [];
+		let total = 0;
+
+		this.forEachDay(segments, (day, segment) => {
 			const dateString = day.format('YYYY-MM-DD');
-			const isStartDate = day.isSame(this._from, 'day');
-			const isEndDate = day.isSame(this._to, 'day');
-			const dayRate = this.getPriceForDay(day, isStartDate || isEndDate);
-			this.dayList.push({
+			const isStartDate = day.isSame(segments[0].from, 'day');
+			const isEndDate = day.isSame(segments[segments.length - 1].to, 'day');
+			const dayRate = this.getPriceForDay(day, segment.country, isStartDate || isEndDate);
+			days.push({
 				id: dateString,
 				date: day,
+				country: segment.country,
+				countryName: getCountryNameByCode(segment.country),
 				excludeBreakfast: !!this.exclude.breakfast[dateString],
 				excludeLunch: !!this.exclude.lunch[dateString],
 				excludeDinner: !!this.exclude.dinner[dateString],
@@ -86,13 +78,10 @@ export class CalculationService {
 				isEndDate,
 				...dayRate
 			});
-			this.total += dayRate.rate;
+			total += dayRate.rate;
 		});
-	}
 
-	setExclude(day, type, excluded) {
-		this.exclude[type][day.format('YYYY-MM-DD')] = excluded;
-		this.update();
+		return { total, days };
 	}
 
 }

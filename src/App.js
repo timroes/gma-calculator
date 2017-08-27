@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import { CountryList, DateRange, DayList } from './components';
+import { Segments } from './Segments';
 import { CalculationService } from './CalculationService';
 import { PdfExporter } from './PdfExporter';
 
@@ -11,43 +13,48 @@ class App extends Component {
 
   constructor() {
     super();
-    this.service = new CalculationService();
-    this.pdfExporter = new PdfExporter(this.service);
+    this.segments = new Segments(DEFAULT_COUNTRY);
+    this.calculationService = new CalculationService();
+    this.pdfExporter = new PdfExporter(this.calculationService, this.segments);
     this.state = {
+      segments: this.segments.get(),
       total: 0,
-      days: 0,
-      dayList: []
+      days: [],
     };
-
-    this.service.setCountry(DEFAULT_COUNTRY);
   }
 
   update() {
+    const segments = this.segments.get();
+    const result = this.calculationService.calculate(segments);
     this.setState({
-      total: this.service.total,
-      days: this.service.days,
-      dayList: this.service.dayList
+      total: result.total,
+      days: result.days,
+      segments,
     });
   }
 
   onExcludeChange = (day, type, excluded) => {
-    this.service.setExclude(day, type, excluded);
+    this.calculationService.setExclude(day, type, excluded);
     this.update();
   };
 
-  handleDateChange = (ev) => {
-    if (ev.invalid) {
-      this.service.from = null;
-      this.service.to = null;
-    } else {
-      this.service.from = ev.from;
-      this.service.to = ev.to;
-    }
+  handleDateChange(segment, from, to) {
+    this.segments.setRange(segment, from, to);
     this.update();
   };
 
-  handleCountryChange = (country) => {
-    this.service.setCountry(country);
+  handleCountryChange(segment, country) {
+    this.segments.setCountry(segment, country);
+    this.update();
+  };
+
+  addNewTrip = (ev) => {
+    this.segments.add();
+    this.update();
+  };
+
+  removeTrip = (index) => {
+    this.segments.remove(index);
     this.update();
   };
 
@@ -56,35 +63,69 @@ class App extends Component {
     this.pdfExporter.download();
   };
 
-  render() {
-    return (
-      <form aria-label="Calculator" className="calculator">
+  renderSegment = (segment, index, segments) => {
+    const isLastSegment = index === segments.length - 1;
+    const isFirstSegment = index === 0;
+
+    const segmentClasses = classnames('calculator__segment', {
+      'calculator__segment--last': isLastSegment
+    });
+
+    return (<div className={segmentClasses} key={`segment_${index}`}>
+      { !isFirstSegment &&
+        <button
+          type="button"
+          onClick={this.removeTrip.bind(this, index)}
+          title="Remove trip segment"
+          className="calculator__segment-button">-</button>
+      }
+      <div className="calculator__segment-inputs">
         <div className="calculator__row calculator__row--country">
           <label
-            htmlFor="country-list"
+            htmlFor={`country-list${index}`}
             className="calculator__country-label">
             Trip to country
           </label>
           <CountryList
-            id="country-list"
+            id={`country-list${index}`}
             className="calculator__country-select"
-            onChange={this.handleCountryChange}
-            defaultValue={DEFAULT_COUNTRY} />
+            onChange={this.handleCountryChange.bind(this, index)}
+            value={segment.country} />
         </div>
-
         <DateRange
           className="calculator__row"
-          onChange={this.handleDateChange}/>
+          from={segment.from}
+          to={segment.to}
+          disableFrom={!isFirstSegment}
+          onChange={this.handleDateChange.bind(this, index)}/>
+      </div>
+      { isLastSegment &&
+        <button
+          type="button"
+          onClick={this.addNewTrip}
+          title="Add new trip segment"
+          className="calculator__segment-button">+</button>
+      }
+    </div>);
+  }
 
-        { this.state.dayList.length === 1 &&
+  render() {
+    return (
+      <form aria-label="Calculator" className="calculator">
+        { this.state.segments.map(this.renderSegment) }
+
+        { this.state.days.length === 1 &&
           <div className="calculator__warning calculator__row">
             You are only entitled to German Meal Allowance if you were at least
             8 hours on that business trip.
           </div>
         }
 
-        { this.state.dayList.length > 0 &&
-          <DayList days={this.state.dayList} onExcludeChange={this.onExcludeChange}/>
+        { this.state.days.length > 0 &&
+          <DayList
+            days={this.state.days}
+            showCountries={this.state.segments.length > 1}
+            onExcludeChange={this.onExcludeChange}/>
         }
 
         <div className="calculator__row calculator__row--right">

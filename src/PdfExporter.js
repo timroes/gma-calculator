@@ -7,8 +7,9 @@ pdfmake.vfs = vfsFonts.pdfMake.vfs;
 
 export class PdfExporter {
 
-	constructor(calculationService) {
+	constructor(calculationService, segments) {
 		this.calculationService = calculationService;
+		this.segments = segments;
 	}
 
 	_getDayRowDefinition(day) {
@@ -19,28 +20,49 @@ export class PdfExporter {
 		].filter(el => !!el).join(', ');
 		return [
 			day.date.format('YYYY-MM-DD (ddd)'),
+			day.country,
 			{ text: `${day.baseRate.toFixed(2)} EUR`, style: 'rate' },
 			paidMeals,
 			{ text: `${day.rate.toFixed(2)} EUR${day.fallbackFrom ? '*' : ''}`, style: 'rate' }
 		];
 	}
 
+	_generateCountryList(segments) {
+		const countries = segments.reduce((countries, segment) => {
+			if (countries.indexOf(segment.country) === -1) {
+				countries.push(segment.country);
+			}
+			return countries;
+		}, []);
+
+		const countryStrings = countries.map(c => `${getCountryNameByCode(c)} (${c})`);
+		countryStrings.sort();
+
+		return {
+			ul: countryStrings,
+			style: 'locationList'
+		};
+	}
+
 	_generateDocDefinition() {
-		const days = this.calculationService.dayList;
+		const segments = this.segments.get();
+		const result = this.calculationService.calculate(segments);
 		const docDef = {
 			content: [
 				{ text: 'German Meal Allowance', style: 'header' },
-				{ text: `Location: ${getCountryNameByCode(this.calculationService.getCountry())}`, style: 'location' },
+				{ text: 'Locations:', style: 'location' },
+				this._generateCountryList(segments),
 				{
 					table: {
 						body: [
-							[ 'Date', 'Base Rate', 'Meals paid by company', 'Rate' ],
-							...days.map(this._getDayRowDefinition),
+							[ 'Date', 'Location', 'Base Rate', 'Meals paid by company', 'Rate' ],
+							...result.days.map(this._getDayRowDefinition),
 							[
-								{ text: 'Total', 'colSpan': 3, style: 'total' },
+								{ text: 'Total', 'colSpan': 4, style: 'total' },
 								'',
 								'',
-								{ text: `${this.calculationService.total.toFixed(2)} EUR`, style: 'total' }
+								'',
+								{ text: `${result.total.toFixed(2)} EUR`, style: 'total' }
 							]
 						]
 					}
@@ -60,7 +82,9 @@ export class PdfExporter {
 					margin: [0, 0, 0, 10]
 				},
 				location: {
-					bold: true,
+					bold: true
+				},
+				locationList: {
 					margin: [0, 0, 0, 8]
 				},
 				rate: {
@@ -78,7 +102,7 @@ export class PdfExporter {
 		};
 
 		// If any day used a fallback rate, show a warning below the table.
-		if (days.filter(day => day.fallbackFrom).length > 0) {
+		if (result.days.filter(day => day.fallbackFrom).length > 0) {
 			docDef.content.push({
 				text: '* No rates for this year yet. Used older rates for these dates.',
 				style: 'fallbackWarning'
