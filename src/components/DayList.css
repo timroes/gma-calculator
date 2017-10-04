@@ -75,3 +75,19 @@ td:last-child {
 	color: #666;
 	cursor: help;
 }
+
+.daylist__rate {
+	white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+	.daylist__exclude-label {
+		display: block;
+		white-space: nowrap;
+		margin-left: 0;
+	}
+
+	.daylist__exclude-label + .daylist__exclude-label {
+		margin-left: 0;
+	}
+}

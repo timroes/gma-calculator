@@ -33,7 +33,7 @@ export class DayList extends Component {
 						Dinner
 					</label>
 				</td>
-				<td>
+				<td className="daylist__rate">
 					{ day.fallbackFrom &&
 						<span>
 							<button type="button" className="daylist__warning-icon" role="tooltip" aria-labelledby={`${day.id}-fallbackRate`}></button>
