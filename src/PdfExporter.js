@@ -44,9 +44,7 @@ export class PdfExporter {
 		};
 	}
 
-	_generateDocDefinition() {
-		const segments = this.segments.get();
-		const result = this.calculationService.calculate(segments);
+	_generateDocDefinition(segments, result) {
 		const docDef = {
 			content: [
 				{ text: 'German Meal Allowance', style: 'header' },
@@ -112,7 +110,18 @@ export class PdfExporter {
 		return docDef;
 	}
 
+	_getFilename(segments, result) {
+		const start = segments[0].from.format('YYYY-MM-DD');
+		const end = segments[segments.length - 1].to.format('YYYY-MM-DD');
+		const countries = segments.map(s => s.country.split('_')[0]).join('-');
+
+		return `gma_${start}_${end}_${countries}_EUR${result.total.toFixed(2).replace('.', '-')}.pdf`;
+	}
+
 	download() {
-		pdfmake.createPdf(this._generateDocDefinition()).download('gma.pdf');
+		const segments = this.segments.get();
+		const result = this.calculationService.calculate(segments);
+		const filename = this._getFilename(segments, result);
+		pdfmake.createPdf(this._generateDocDefinition(segments, result)).download(filename);
 	}
 }
