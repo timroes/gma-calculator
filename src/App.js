@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { CountryList, DateRange, DayList } from './components';
 import { Segments } from './Segments';
 import { CalculationService } from './CalculationService';
-import { PdfExporter } from './PdfExporter';
 
 import './App.css';
 
@@ -15,7 +14,6 @@ class App extends Component {
     super();
     this.segments = new Segments(DEFAULT_COUNTRY);
     this.calculationService = new CalculationService();
-    this.pdfExporter = new PdfExporter(this.calculationService, this.segments);
     this.state = {
       segments: this.segments.get(),
       total: 0,
@@ -58,9 +56,11 @@ class App extends Component {
     this.update();
   };
 
-  downloadPdf = (ev) => {
+  downloadPdf = async (ev) => {
     ev.preventDefault();
-    this.pdfExporter.download();
+    const { PdfExporter } = await import('./PdfExporter');
+    const pdfExporter = new PdfExporter(this.calculationService, this.segments);
+    pdfExporter.download();
   };
 
   renderSegment = (segment, index, segments) => {
