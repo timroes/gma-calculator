@@ -235,4 +235,4 @@ export default [
 	{ name: 'Yemen', code: 'YE' },
 	{ name: 'Zambia', code: 'ZM' },
 	{ name: 'Zimbabwe', code: 'ZW' },
-];
+] as const;

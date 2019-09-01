@@ -1,11 +1,16 @@
-import moment from 'moment';
+import moment, { Moment } from 'moment';
+
+interface Segment {
+	country: string;
+	from: Moment | null;
+	to: Moment | null;
+}
 
 export class Segments {
 
-	segments = [];
+	public readonly segments: Segment[] = [];
 
-	constructor(defaultCountryCode) {
-		this.defaultCountryCode = defaultCountryCode;
+	constructor(private defaultCountryCode: string) {
 		this.segments.push({ from: null, to: null, country: defaultCountryCode });
 	}
 
@@ -21,10 +26,10 @@ export class Segments {
 		})
 	}
 
-	remove(index) {
+	remove(index: number) {
 		if (index > 0 && index < this.segments.length) {
 			if (this.segments[index + 1] && this.segments[index - 1].to) {
-				this.segments[index + 1].from = moment(this.segments[index - 1].to).add(1, 'day');
+				this.segments[index + 1].from = moment(this.segments[index - 1].to || undefined).add(1, 'day');
 			}
 			this.segments.splice(index, 1);
 		}
@@ -34,13 +39,13 @@ export class Segments {
 		return this.segments;
 	}
 
-	setRange(index, fromRaw, toRaw) {
+	setRange(index: number, fromRaw: Date, toRaw: Date) {
 		if (this.segments[index]) {
 			let from = fromRaw ? moment(fromRaw) : null;
 			let to = toRaw ? moment(toRaw) : null;
 
 			if (!to || (from && to.isBefore(from))) {
-				to = moment(from);
+				to = moment(from || undefined);
 			}
 
 			this.segments[index].from = from;
@@ -70,13 +75,13 @@ export class Segments {
 		}
 	}
 
-	setCountry(index, countryCode) {
+	setCountry(index: number, countryCode: string) {
 		if (this.segments[index]) {
 			this.segments[index].country = countryCode;
 		}
 	}
 
-	getCountry(index) {
+	getCountry(index: number) {
 		return this.segments[index] ? this.segments[index].country : null;
 	}
 

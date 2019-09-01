@@ -4,22 +4,43 @@
   "private": true,
   "homepage": "https://timroes.github.io/gma-calculator/",
   "dependencies": {
-    "classnames": "^2.2.5",
+    "@types/classnames": "^2.2.9",
+    "@types/jest": "24.0.18",
+    "@types/node": "12.7.3",
+    "@types/react": "16.9.2",
+    "@types/react-datepicker": "^2.8.1",
+    "@types/react-dom": "16.9.0",
+    "@types/react-select": "^3.0.4",
+    "classnames": "^2.2.6",
     "gh-pages": "^1.0.0",
-    "moment": "^2.18.1",
-    "pdfmake": "^0.1.32",
-    "react": "^15.6.1",
-    "react-datepicker": "^0.53.0",
-    "react-dom": "^15.6.1",
-    "react-scripts": "1.0.11",
-    "react-select": "^1.0.0-rc.5"
+    "moment": "^2.24.0",
+    "pdfmake": "^0.1.58",
+    "react": "^16.9.0",
+    "react-datepicker": "^2.9.3",
+    "react-dom": "^16.9.0",
+    "react-scripts": "3.1.1",
+    "react-select": "^3.0.4",
+    "typescript": "^3.6.2"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

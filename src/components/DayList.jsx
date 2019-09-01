@@ -21,15 +21,15 @@ export class DayList extends Component {
 				</td>
 				<td>
 					<label className="daylist__exclude-label">
-						<input type="checkbox" onChange={onExcludeChange.bind(this, 'breakfast')}/>
+						<input type="checkbox" onChange={onExcludeChange.bind(this, 'breakfast')} checked={day.excludeBreakfast}/>
 						Breakfast
 					</label>
 					<label className="daylist__exclude-label">
-						<input type="checkbox" onChange={onExcludeChange.bind(this, 'lunch')}/>
+						<input type="checkbox" onChange={onExcludeChange.bind(this, 'lunch')} checked={day.excludeLunch}/>
 						Lunch
 					</label>
 					<label className="daylist__exclude-label">
-						<input type="checkbox" onChange={onExcludeChange.bind(this, 'dinner')}/>
+						<input type="checkbox" onChange={onExcludeChange.bind(this, 'dinner')} checked={day.excludeDinner}/>
 						Dinner
 					</label>
 				</td>
