@@ -56,6 +56,7 @@ td:last-child {
 	box-shadow: rgba(0, 0, 0, 0.3) 0 2px 10px;
 	border-radius: 0.2em;
 	text-align: left;
+	white-space: normal;
 }
 
 .daylist__info-icon:hover + .daylist__info,
