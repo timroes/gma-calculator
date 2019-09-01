@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
 import classnames from 'classnames';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 import { getAllCountries } from '../countries';
 
 import './CountryList.css';
+import 'flag-icon-css/css/flag-icon.min.css';
 
 interface CountryListProps {
 	className?: string;
@@ -25,6 +26,12 @@ export function CountryList(props: CountryListProps) {
 			inputProps={{ id: props.id }}
 			clearable={false}
 			isMulti={false}
+			components={{ Option: (props) => (
+				<components.Option {...props}>
+					<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.value.substr(0, 2).toLowerCase()}`)} />
+					{props.label}
+				</components.Option>
+			) }}
 		/>
 	);
 }
