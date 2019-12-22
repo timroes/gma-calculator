@@ -42,6 +42,15 @@ export class DayList extends Component {
 							</div>
 						</span>
 					}
+					{ day.countryWithoutRate &&
+						<span>
+							<button type="button" className="daylist__warning-icon" role="tooltip" aria-labelledby={`${day.id}-fallbackRate`}></button>
+							<div id={`${day.id}-fallbackRate`} className="daylist__warning" aria-hidden="true">
+								This location had no official rate for this year. It might have been added in later years to
+								the list, or might have been removed from the list. Please use another location.
+							</div>
+						</span>
+					}
 					{ day.rate.toFixed(2) } €
 				</td>
 			</tr>);

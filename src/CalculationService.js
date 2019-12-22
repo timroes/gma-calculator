@@ -49,7 +49,8 @@ export class CalculationService {
 		return {
 			baseRate,
 			rate: Math.max(price, 0),
-			fallbackFrom: baseRatesForDay.fallbackFrom
+			fallbackFrom: baseRatesForDay.fallbackFrom,
+			countryWithoutRate: baseRatesForDay.full === 0,
 		};
 	}
 
