@@ -12,7 +12,7 @@ interface Rates {
 
 export const rates: Rates = {
   fromYear: 2017,
-  toYear: 20,
+  toYear: 2020,
   countries: { 
     "AD": [ 
       { 
