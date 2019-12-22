@@ -12,7 +12,7 @@ interface Rates {
 
 export const rates: Rates = {
   fromYear: 2017,
-  toYear: 2019,
+  toYear: 2020,
   countries: { 
     "AD": [ 
       { 
@@ -26,7 +26,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 65,
+        "reduced": 44
+      }
     ], 
     "AF": [ 
       { 
@@ -59,21 +64,36 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 23, 
         "reduced": 16 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 24,
+        "reduced": 16,
+      }
     ], 
     "AO": [ 
       { 
         "since": 2017, 
         "full": 77, 
         "reduced": 52 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 52,
+        "reduced": 35
+      }
     ], 
     "AR": [ 
       { 
         "since": 2017, 
         "full": 34, 
         "reduced": 23 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 35,
+        "reduced": 24,
+      }
     ], 
     "AT": [ 
       { 
@@ -135,7 +155,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 18, 
         "reduced": 12 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 23,
+        "reduced": 16,
+      }
     ], 
     "BB": [ 
       { 
@@ -154,7 +179,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 50,
+        "reduced": 33,
+      }
     ], 
     "BE": [ 
       { 
@@ -173,7 +203,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 44, 
         "reduced": 29 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 38,
+        "reduced": 25,
+      }
     ], 
     "BG": [ 
       { 
@@ -201,14 +236,24 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 52,
+        "reduced": 35,
+      }
     ], 
     "BN": [ 
       { 
         "since": 2017, 
         "full": 48, 
         "reduced": 32 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 52,
+        "reduced": 35,
+      }
     ], 
     "BO": [ 
       { 
@@ -332,6 +377,11 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 68, 
         "reduced": 45 
+      },
+      {
+        "since": 2020,
+        "full": 70,
+        "reduced": 47
       } 
     ], 
     "CF": [ 
@@ -435,6 +485,11 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 41, 
         "reduced": 28 
+      },
+      {
+        "since": 2020,
+        "full": 46,
+        "reduced": 31
       } 
     ], 
     "CR": [ 
@@ -487,7 +542,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 24, 
         "reduced": 12 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 28,
+        "reduced": 14
+      }
     ], 
     "DJ": [ 
       { 
@@ -556,7 +616,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 27, 
         "reduced": 18 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 29,
+        "reduced": 20,
+      }
     ], 
     "EG": [ 
       { 
@@ -647,7 +712,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 27, 
         "reduced": 18 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 39,
+        "reduced": 26
+      }
     ], 
     "FI": [ 
       { 
@@ -730,6 +800,11 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 62, 
         "reduced": 41 
+      },
+      {
+        "since": 2020,
+        "full": 52,
+        "reduced": 35,
       } 
     ], 
     "GB": [ 
@@ -860,7 +935,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 29, 
         "reduced": 19 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 35,
+        "reduced": 24
+      }
     ], 
     "HT": [ 
       { 
@@ -881,7 +961,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 38, 
         "reduced": 25 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 36,
+        "reduced": 24,
+      }
     ], 
     "IE": [ 
       { 
@@ -895,7 +980,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 56, 
         "reduced": 37 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 66,
+        "reduced": 44,
+      }
     ], 
     "IN": [ 
       { 
@@ -908,7 +998,14 @@ export const rates: Rates = {
         "full": 32, 
         "reduced": 21 
       } 
-    ], 
+    ],
+    "IN_BA": [
+      {
+        "since": 2020,
+        "full": 42,
+        "reduced": 28
+      }
+    ],
     "IN_CH": [ 
       { 
         "since": 2017, 
@@ -1031,7 +1128,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 52,
+        "reduced": 35,
+      }
     ], 
     "JP_TK": [ 
       { 
@@ -1057,7 +1159,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 29, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 27,
+        "reduced": 18
+      }
     ], 
     "KH": [ 
       { 
@@ -1083,6 +1190,11 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 39, 
         "reduced": 26 
+      },
+      {
+        "since": 2020,
+        "full": 28,
+        "reduced": 19
       } 
     ], 
     "KR": [ 
@@ -1173,6 +1285,11 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 24, 
         "reduced": 16 
+      },
+      {
+        "since": 2020,
+        "full": 26,
+        "reduced": 17
       } 
     ], 
     "LU": [ 
@@ -1187,7 +1304,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 35,
+        "reduced": 24
+      }
     ], 
     "LY": [ 
       { 
@@ -1265,7 +1387,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 41, 
         "reduced": 28 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 38,
+        "reduced": 25
+      }
     ], 
     "MM": [ 
       { 
@@ -1298,7 +1425,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 46,
+        "reduced": 31
+      }
     ], 
     "MU": [ 
       { 
@@ -1336,7 +1468,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 41, 
         "reduced": 28 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 48,
+        "reduced": 32
+      }
     ], 
     "MY": [ 
       { 
@@ -1362,6 +1499,11 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 23, 
         "reduced": 16 
+      },
+      {
+        "since": 2020,
+        "full": 30,
+        "reduced": 20
       } 
     ], 
     "NE": [ 
@@ -1381,7 +1523,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 63, 
         "reduced": 42 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 46,
+        "reduced": 31
+      }
     ], 
     "NI": [ 
       { 
@@ -1395,7 +1542,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 46, 
         "reduced": 31 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 47,
+        "reduced": 32
+      }
     ], 
     "NO": [ 
       { 
@@ -1447,7 +1599,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 34,
+        "reduced": 23
+      }
     ], 
     "PG": [ 
       { 
@@ -1473,14 +1630,24 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 27, 
         "reduced": 18 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 34,
+        "reduced": 23
+      }
     ], 
     "PK_IS": [ 
       { 
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 23,
+        "reduced": 16
+      }
     ], 
     "PL": [ 
       { 
@@ -1652,7 +1819,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 35, 
         "reduced": 24 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 33,
+        "reduced": 22
+      }
     ], 
     "SE": [ 
       { 
@@ -1775,7 +1947,15 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 39, 
         "reduced": 26 
-      } 
+      },
+      {
+        // Excactly the same as the year before, but since it
+        // was highlighted in the original announcement added it again,
+        // for better clarity.
+        "since": 2020,
+        "full": 39,
+        "reduced": 26
+      }
     ], 
     "TH": [ 
       { 
@@ -1832,21 +2012,36 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 17,
+        "reduced": 12
+      }
     ], 
     "TR_IS": [ 
       { 
         "since": 2017, 
         "full": 35, 
         "reduced": 24 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 26,
+        "reduced": 17
+      }
     ], 
     "TR_IZ": [ 
       { 
         "since": 2017, 
         "full": 42, 
         "reduced": 28 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 29,
+        "reduced": 20
+      }
     ], 
     "TT": [ 
       { 
@@ -1865,7 +2060,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 46,
+        "reduced": 31
+      }
     ], 
     "TZ": [ 
       { 
@@ -1879,14 +2079,24 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 32, 
         "reduced": 21 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 26,
+        "reduced": 17
+      }
     ], 
     "UG": [ 
       { 
         "since": 2017, 
         "full": 35, 
         "reduced": 24 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 41,
+        "reduced": 28
+      }
     ], 
     "US": [ 
       { 
@@ -1963,7 +2173,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 44, 
         "reduced": 29 
-      } 
+      },
+      {
+        "since": 2020,
+        "full": 48,
+        "reduced": 32
+      }
     ], 
     "UZ": [ 
       { 
@@ -2006,6 +2221,11 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 69, 
         "reduced": 46 
+      },
+      {
+        "since": 2020,
+        "full": 45,
+        "reduced": 30
       } 
     ], 
     "VN": [ 
