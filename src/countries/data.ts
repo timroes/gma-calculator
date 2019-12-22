@@ -88,6 +88,7 @@ export default [
 	{ name: 'Honduras', code: 'HN' },
 	{ name: 'Hungary', code: 'HU' },
 	{ name: 'India', code: 'IN' },
+	{ name: 'India - Bangalore', code: 'IN_BA' },
 	{ name: 'India - Chennai', code: 'IN_CH' },
 	{ name: 'India - Kolkata', code: 'IN_KO' },
 	{ name: 'India - Mumbai', code: 'IN_MB' },
