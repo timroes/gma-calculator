@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { Moment } from 'moment';
+import { ExcludeOption, Day } from '../CalculationService';
 import './DayList.css';
 
-export class DayList extends Component {
+interface DayListProps {
+	days: Day[];
+	showCountries: boolean;
+	onExcludeChange: (date: Moment, type: ExcludeOption, excluded: boolean) => void;
+}
 
-	renderDay = (day) => {
-		const onExcludeChange = (type, ev) => {
+export class DayList extends Component<DayListProps> {
+
+	renderDay = (day: Day) => {
+		const onExcludeChange = (type: ExcludeOption, ev: React.ChangeEvent<HTMLInputElement>) => {
 			this.props.onExcludeChange(day.date, type, ev.target.checked);
 		};
 		return (<tr key={day.id}>
@@ -63,7 +71,7 @@ export class DayList extends Component {
 						{this.props.showCountries &&
 							<th scope="col">Country</th>
 						}
-						<th colSpan="2" scope="colgroup">Date</th>
+						<th colSpan={2} scope="colgroup">Date</th>
 						<th scope="col">
 							Meals paid by company
 							<button type="button" role="tooltip" className="daylist__info-icon" aria-labelledby="paidmeal-info"></button>

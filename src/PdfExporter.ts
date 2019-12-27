@@ -1,18 +1,19 @@
+// @ts-ignore
 import pdfmake from 'pdfmake/build/pdfmake.js';
+// @ts-ignore
 import vfsFonts from 'pdfmake/build/vfs_fonts.js';
 import { getCountryNameByCode } from './countries';
+import { CalculationService, Day } from './CalculationService';
+import { Segments, Segment } from './Segments';
 
 // Hack to get this working with webpack (see https://github.com/bpampuch/pdfmake/issues/939#issuecomment-318846576)
 pdfmake.vfs = vfsFonts.pdfMake.vfs;
 
 export class PdfExporter {
 
-	constructor(calculationService, segments) {
-		this.calculationService = calculationService;
-		this.segments = segments;
-	}
+	constructor(private calculationService: CalculationService, private segments: Segments) { }
 
-	_getDayRowDefinition(day) {
+	private getDayRowDefinition(day: Day) {
 		const paidMeals = [
 			day.excludeBreakfast ? `Breakfast` : null,
 			day.excludeLunch ? `Lunch` : null,
@@ -27,8 +28,8 @@ export class PdfExporter {
 		];
 	}
 
-	_generateCountryList(segments) {
-		const countries = segments.reduce((countries, segment) => {
+	private generateCountryList(segments: Segment[]) {
+		const countries = segments.reduce<string[]>((countries, segment) => {
 			if (countries.indexOf(segment.country) === -1) {
 				countries.push(segment.country);
 			}
@@ -44,17 +45,17 @@ export class PdfExporter {
 		};
 	}
 
-	_generateDocDefinition(segments, result) {
+	private generateDocDefinition(segments: Segment[], result: ReturnType<CalculationService['calculate']>) {
 		const docDef = {
 			content: [
 				{ text: 'German Meal Allowance', style: 'header' },
 				{ text: 'Locations:', style: 'location' },
-				this._generateCountryList(segments),
+				this.generateCountryList(segments),
 				{
 					table: {
 						body: [
 							[ 'Date', 'Location', 'Base Rate', 'Meals paid by company', 'Rate' ],
-							...result.days.map(this._getDayRowDefinition),
+							...result.days.map(this.getDayRowDefinition),
 							[
 								{ text: 'Total', 'colSpan': 4, style: 'total' },
 								'',
@@ -100,7 +101,7 @@ export class PdfExporter {
 		};
 
 		// If any day used a fallback rate, show a warning below the table.
-		if (result.days.filter(day => day.fallbackFrom).length > 0) {
+		if (result.days.filter((day: Day) => day.fallbackFrom).length > 0) {
 			docDef.content.push({
 				text: '* No rates for this year yet. Used older rates for these dates.',
 				style: 'fallbackWarning'
@@ -110,9 +111,14 @@ export class PdfExporter {
 		return docDef;
 	}
 
-	_getFilename(segments, result) {
-		const start = segments[0].from.format('YYYY-MM-DD');
-		const end = segments[segments.length - 1].to.format('YYYY-MM-DD');
+	private getFilename(segments: Segment[], result: ReturnType<CalculationService['calculate']>) {
+		const from = segments[0].from;
+		const to = segments[segments.length - 1].to;
+		if (!from || !to) {
+			throw new Error('The downloader was called without a valid segment. This should not happen.');
+		}
+		const start = from.format('YYYY-MM-DD');
+		const end = to.format('YYYY-MM-DD');
 		const countries = segments.map(s => s.country.split('_')[0]).join('-');
 
 		return `gma_${start}_${end}_${countries}_EUR${result.total.toFixed(2).replace('.', '-')}.pdf`;
@@ -121,7 +127,7 @@ export class PdfExporter {
 	download() {
 		const segments = this.segments.get();
 		const result = this.calculationService.calculate(segments);
-		const filename = this._getFilename(segments, result);
-		pdfmake.createPdf(this._generateDocDefinition(segments, result)).download(filename);
+		const filename = this.getFilename(segments, result);
+		pdfmake.createPdf(this.generateDocDefinition(segments, result)).download(filename);
 	}
 }

@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import { Moment } from 'moment';
 import { CountryList, DateRange, DayList } from './components';
-import { Segments } from './Segments';
-import { CalculationService } from './CalculationService';
+import { Segments, Segment } from './Segments';
+import { CalculationService, Day, ExcludeOption } from './CalculationService';
 
 import './App.css';
 
 const DEFAULT_COUNTRY = 'DE';
 
-class App extends Component {
+interface AppState {
+  total: number;
+  days: Day[];
+  segments: Segment[];
+}
+
+class App extends Component<{}, AppState> {
+
+  private calculationService: CalculationService;
+  private segments: Segments;
 
   constructor() {
-    super();
+    super({});
     this.segments = new Segments(DEFAULT_COUNTRY);
     this.calculationService = new CalculationService();
     this.state = {
@@ -31,39 +41,39 @@ class App extends Component {
     });
   }
 
-  onExcludeChange = (day, type, excluded) => {
+  onExcludeChange = (day: Moment, type: ExcludeOption, excluded: boolean) => {
     this.calculationService.setExclude(day, type, excluded);
     this.update();
   };
 
-  handleDateChange(segment, from, to) {
-    this.segments.setRange(segment, from, to);
+  handleDateChange(segmentIndex: number, from: Date | null, to: Date | null) {
+    this.segments.setRange(segmentIndex, from, to);
     this.update();
   };
 
-  handleCountryChange(segment, country) {
-    this.segments.setCountry(segment, country);
+  handleCountryChange(segmentIndex: number, country: string) {
+    this.segments.setCountry(segmentIndex, country);
     this.update();
   };
 
-  addNewTrip = (ev) => {
+  addNewTrip = () => {
     this.segments.add();
     this.update();
   };
 
-  removeTrip = (index) => {
+  removeTrip = (index: number) => {
     this.segments.remove(index);
     this.update();
   };
 
-  downloadPdf = async (ev) => {
+  downloadPdf = async (ev: React.MouseEvent) => {
     ev.preventDefault();
-    const { PdfExporter } = await import('./PdfExporter');
+    const { PdfExporter } = await import('./PdfExporter') as any;
     const pdfExporter = new PdfExporter(this.calculationService, this.segments);
     pdfExporter.download();
   };
 
-  renderSegment = (segment, index, segments) => {
+  renderSegment = (segment: Segment, index: number, segments: Segment[]) => {
     const isLastSegment = index === segments.length - 1;
     const isFirstSegment = index === 0;
 

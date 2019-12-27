@@ -1,10 +1,35 @@
 import moment from 'moment';
 import { getRateForCountry } from './rates';
 import { getCountryNameByCode } from './countries';
+import { Segment } from './Segments';
+
+export type ExcludeOption = 'breakfast' | 'lunch' | 'dinner';
+
+export interface Day {
+	id: string;
+	country: string;
+	countryName: string;
+	date: moment.Moment;
+	excludeBreakfast: boolean;
+	excludeLunch: boolean;
+	excludeDinner: boolean;
+	isStartDate: boolean;
+	isEndDate: boolean;
+	rate: number;
+	baseRate: number;
+	fallbackFrom?: number;
+	countryWithoutRate: boolean;
+}
+
+interface ExcludeMap {
+	breakfast: { [date: string]: boolean };
+	lunch: { [date: string]: boolean };
+	dinner: { [date: string]: boolean };
+}
 
 export class CalculationService {
 
-	exclude = {
+	private exclude: ExcludeMap = {
 		breakfast: {},
 		lunch: {},
 		dinner: {}
@@ -14,7 +39,7 @@ export class CalculationService {
 	 * Iterate over each days in the selection.
 	 * Calls the provided callback and passes the date as a parameter.
 	 */
-	forEachDay(segments, callback) {
+	forEachDay(segments: Segment[], callback: (date: moment.Moment, segment: Segment) => void) {
 		if (segments.length < 1) {
 			throw new Error('There should always be at least one segment.');
 		}
@@ -31,7 +56,7 @@ export class CalculationService {
 
 	}
 
-	getPriceForDay(day, country, isStartEndDate) {
+	getPriceForDay(day: moment.Moment, country: string, isStartEndDate: boolean) {
 		// Get the base rates for the specific date and country
 		const baseRatesForDay = getRateForCountry(country, day.year());
 		const baseRate = isStartEndDate ? baseRatesForDay.reduced : baseRatesForDay.full;
@@ -54,12 +79,12 @@ export class CalculationService {
 		};
 	}
 
-	setExclude(day, type, excluded) {
+	setExclude(day: moment.Moment, type: ExcludeOption, excluded: boolean) {
 		this.exclude[type][day.format('YYYY-MM-DD')] = excluded;
 	}
 
-	calculate(segments) {
-		const days = [];
+	calculate(segments: Segment[]): { total: number, days: Day[] } {
+		const days: Day[] = [];
 		let total = 0;
 
 		this.forEachDay(segments, (day, segment) => {

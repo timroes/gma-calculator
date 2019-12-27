@@ -1,9 +1,9 @@
 import moment, { Moment } from 'moment';
 
-interface Segment {
+export interface Segment {
 	country: string;
-	from: Moment | null;
-	to: Moment | null;
+	from?: Moment;
+	to?: Moment;
 }
 
 export class Segments {
@@ -11,13 +11,13 @@ export class Segments {
 	public readonly segments: Segment[] = [];
 
 	constructor(private defaultCountryCode: string) {
-		this.segments.push({ from: null, to: null, country: defaultCountryCode });
+		this.segments.push({ from: undefined, to: undefined, country: defaultCountryCode });
 	}
 
 	add() {
 		const previousTo = this.segments[this.segments.length - 1].to;
 		// New segment starts one day after the previous segment
-		const startFrom = previousTo ? moment(previousTo).add(1, 'day') : null;
+		const startFrom = previousTo ? moment(previousTo).add(1, 'day') : undefined;
 
 		this.segments.push({
 			from: startFrom,
@@ -39,10 +39,10 @@ export class Segments {
 		return this.segments;
 	}
 
-	setRange(index: number, fromRaw: Date, toRaw: Date) {
+	setRange(index: number, fromRaw: Date | null, toRaw: Date | null) {
 		if (this.segments[index]) {
-			let from = fromRaw ? moment(fromRaw) : null;
-			let to = toRaw ? moment(toRaw) : null;
+			let from = fromRaw ? moment(fromRaw) : undefined;
+			let to = toRaw ? moment(toRaw) : undefined;
 
 			if (!to || (from && to.isBefore(from))) {
 				to = moment(from || undefined);
