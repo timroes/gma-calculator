@@ -8,10 +8,7 @@ export function getRateForCountry(country: string, year: number): { full: number
     return rateForYear;
   }
 
-  const oldestRate = rates.countries[country].find(rate => rate.since === rates.fromYear);
-  if (!oldestRate) {
-    throw new Error(`Country "${country}" is missing the rate for oldest year "${rates.fromYear}".`);
-  }
+  const oldestRate = rates.countries[country].find(rate => rate.since === rates.fromYear) ?? { full: 0, reduced: 0, since: 0 };
 
   // The requested year is before the rates records, so use the oldest record instead
   if (year < rates.fromYear) {

@@ -1001,11 +1001,6 @@ export const rates: Rates = {
     ],
     "IN_BA": [
       {
-        "since": 2017,
-        "full": 0,
-        "reduced": 0,
-      },
-      {
         "since": 2020,
         "full": 42,
         "reduced": 28
