@@ -13,6 +13,7 @@ interface AppState {
   total: number;
   days: Day[];
   segments: Segment[];
+  isGeneratingPdf: boolean;
 }
 
 class App extends Component<{}, AppState> {
@@ -28,6 +29,7 @@ class App extends Component<{}, AppState> {
       segments: this.segments.get(),
       total: 0,
       days: [],
+      isGeneratingPdf: false,
     };
   }
 
@@ -68,9 +70,11 @@ class App extends Component<{}, AppState> {
 
   downloadPdf = async (ev: React.MouseEvent) => {
     ev.preventDefault();
+    this.setState({ isGeneratingPdf: true });
     const { PdfExporter } = await import('./PdfExporter') as any;
     const pdfExporter = new PdfExporter(this.calculationService, this.segments);
     pdfExporter.download();
+    this.setState({ isGeneratingPdf: false });
   };
 
   renderSegment = (segment: Segment, index: number, segments: Segment[]) => {
@@ -121,6 +125,11 @@ class App extends Component<{}, AppState> {
   }
 
   render() {
+
+    const downloadButtonClass = classnames('pdfdownload', {
+      'pdfdownload--loading': this.state.isGeneratingPdf,
+    });
+
     return (
       <form aria-label="Calculator" className="calculator">
         { this.state.segments.map(this.renderSegment) }
@@ -144,16 +153,16 @@ class App extends Component<{}, AppState> {
           <output id="total" className="sum">
             { this.state.total.toFixed(2) } €
           </output>
-          <button
-            type="button"
-            aria-label="Download as PDF"
-            disabled={!this.state.total}
-            onClick={this.downloadPdf}
-            className="pdfdownload"
-          >
-            PDF ↓
-          </button>
         </div>
+        <button
+          type="button"
+          aria-label="Download as PDF"
+          disabled={!this.state.total || this.state.isGeneratingPdf}
+          onClick={this.downloadPdf}
+          className={downloadButtonClass}
+        >
+          {this.state.isGeneratingPdf ? 'Generating PDF …' : 'Download PDF'}
+        </button>
       </form>
     );
   }

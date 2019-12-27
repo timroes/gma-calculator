@@ -3,7 +3,7 @@
   margin: 1.5em auto 0.5em;
   background-color: white;
   box-shadow: 0 0 4px 1px #AAA;
-  padding: 1em 0;
+  padding: 1em 0 0;
   box-sizing: border-box;
   text-align: left;
 }
@@ -42,25 +42,52 @@
 }
 
 .pdfdownload {
-  background: #CB0606;
+  background: #009B8F;
   color: white;
-  border-radius: 0.3em;
   font-size: 1.1em;
-  margin-left: 0.8em;
+  width: 100%;
+  margin-top: 0.5em;
   border: none;
   transition: background 0.2s ease;
   cursor: pointer;
   font-family: inherit;
+  padding: 0.5em;
+  position: relative;
+  overflow: hidden;
 }
 
-.pdfdownload:disabled {
+.pdfdownload--loading {
+  background: #7db9b4;
+}
+
+@keyframes buttonSpinner {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.pdfdownload--loading::before {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  height: 4px;
+  background-color: #009B8F;
+  animation: buttonSpinner 2s linear infinite;
+}
+
+.pdfdownload:disabled:not(.pdfdownload--loading) {
   cursor: not-allowed;
   background: #666;
 }
 
 .pdfdownload:hover:not(:disabled),
 .pdfdownload:focus:not(:disabled) {
-  background: #ff5151;
+  background: #5accc3;
 }
 
 .sum {
