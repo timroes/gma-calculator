@@ -103,7 +103,7 @@ export class PdfExporter {
 		// If any day used a fallback rate, show a warning below the table.
 		if (result.days.filter((day: Day) => day.fallbackFrom).length > 0) {
 			docDef.content.push({
-				text: '* No rates for this year yet. Used older rates for these dates.',
+				text: '* The rates for this year have not yet been published. Rates from previous years have been used for these dates.',
 				style: 'fallbackWarning'
 			});
 		}
