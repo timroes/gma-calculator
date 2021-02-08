@@ -4,6 +4,7 @@ import { Moment } from 'moment';
 import { CountryList, DateRange, DayList } from './components';
 import { Segments, Segment } from './Segments';
 import { CalculationService, Day, ExcludeOption } from './CalculationService';
+import { plausible } from './plausible';
 
 import './App.css';
 
@@ -21,8 +22,8 @@ class App extends Component<{}, AppState> {
   private calculationService: CalculationService;
   private segments: Segments;
 
-  constructor() {
-    super({});
+  constructor(props: {}) {
+    super(props);
     this.segments = new Segments(DEFAULT_COUNTRY);
     this.calculationService = new CalculationService();
     this.state = {
@@ -70,6 +71,7 @@ class App extends Component<{}, AppState> {
 
   downloadPdf = async (ev: React.MouseEvent) => {
     ev.preventDefault();
+    plausible('DownloadPdf');
     this.setState({ isGeneratingPdf: true });
     const { PdfExporter } = await import('./PdfExporter') as any;
     const pdfExporter = new PdfExporter(this.calculationService, this.segments);
