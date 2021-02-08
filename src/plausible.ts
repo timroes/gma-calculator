@@ -3,15 +3,21 @@ interface PlausibleArgs {
   props?: Record<string, string>;
 }
 
+interface PlausibleFunction {
+  (eventName: string, args: PlausibleArgs): void;
+  q: unknown[];
+}
+
 declare global {
   interface Window {
-    plausible?: {
-      q?: unknown[];
-    };
+    plausible: PlausibleFunction;
   }
 }
 
-export function plausible(eventName: string, args: PlausibleArgs = {}): void {
-  window.plausible = window.plausible || {};
+window.plausible = window.plausible || ((eventName: string, args: PlausibleArgs = {}): void => {
   (window.plausible.q = window.plausible.q || []).push([eventName, args]);
-}
+});
+
+export function plausible(eventName: string, args: PlausibleArgs = {}): void {
+  window.plausible(eventName, args);
+};
