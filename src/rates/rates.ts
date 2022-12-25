@@ -12,7 +12,7 @@ interface Rates {
 
 export const rates: Rates = {
   fromYear: 2017,
-  toYear: 2022,
+  toYear: 2023,
   countries: { 
     "AD": [ 
       { 
@@ -153,12 +153,17 @@ export const rates: Rates = {
         "reduced": 45 
       } 
     ], 
-    "AZ": [ 
+    "AZ": [ // Azerbaijan
       { 
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2023,
+        "full": 44,
+        "reduced": 29
+      }
     ], 
     "BA": [ 
       { 
@@ -196,7 +201,7 @@ export const rates: Rates = {
         "reduced": 33,
       }
     ], 
-    "BE": [ 
+    "BE": [ // Belgium
       { 
         "since": 2017, 
         "full": 41, 
@@ -206,6 +211,11 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 42, 
         "reduced": 28 
+      },
+      { 
+        "since": 2023, 
+        "full": 59, 
+        "reduced": 40 
       } 
     ], 
     "BF": [ 
@@ -227,12 +237,17 @@ export const rates: Rates = {
         "reduced": 15 
       } 
     ], 
-    "BH": [ 
+    "BH": [ // Bahrain
       { 
         "since": 2017, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      { 
+        "since": 2023,
+        "full": 48, 
+        "reduced": 32 
+      }
     ], 
     "BI": [ 
       { 
@@ -270,11 +285,16 @@ export const rates: Rates = {
         "reduced": 35,
       }
     ], 
-    "BO": [ 
+    "BO": [ // Bolivia
       { 
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
+      },
+      { 
+        "since": 2023, 
+        "full": 46, 
+        "reduced": 31 
       } 
     ], 
     "BR": [ 
@@ -588,18 +608,28 @@ export const rates: Rates = {
         "reduced": 20 
       } 
     ], 
-    "CY": [ 
+    "CY": [ // Cyprus
       { 
         "since": 2017, 
         "full": 45, 
         "reduced": 30 
+      },
+      { 
+        "since": 2023, 
+        "full": 42, 
+        "reduced": 28 
       } 
     ], 
-    "CZ": [ 
+    "CZ": [ // Czech Republic
       { 
         "since": 2017, 
         "full": 35, 
         "reduced": 24 
+      },
+      { 
+        "since": 2023, 
+        "full": 32, 
+        "reduced": 21 
       } 
     ], 
     "DE": [ 
@@ -626,7 +656,7 @@ export const rates: Rates = {
         "reduced": 44 
       } 
     ], 
-    "DK": [ 
+    "DK": [ // Denmark
       { 
         "since": 2017, 
         "full": 60, 
@@ -636,6 +666,11 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 58, 
         "reduced": 39 
+      },
+      { 
+        "since": 2023, 
+        "full": 75, 
+        "reduced": 50 
       } 
     ], 
     "DM": [ 
@@ -662,19 +697,29 @@ export const rates: Rates = {
         "reduced": 30 
       } 
     ], 
-    "DZ": [ 
+    "DZ": [ // Algeria
       { 
         "since": 2017, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      { 
+        "since": 2023, 
+        "full": 47, 
+        "reduced": 32 
+      }
     ], 
-    "EC": [ 
+    "EC": [ // Ecuador
       { 
         "since": 2017, 
         "full": 44, 
         "reduced": 29 
-      } 
+      },
+      {
+        "since": 2023,
+        "full": 27,
+        "reduced": 18
+      }
     ], 
     "EE": [ 
       { 
@@ -688,7 +733,7 @@ export const rates: Rates = {
         "reduced": 20,
       }
     ], 
-    "EG": [ 
+    "EG": [ // Egypt
       { 
         "since": 2017, 
         "full": 40, 
@@ -698,7 +743,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 41, 
         "reduced": 28 
-      } 
+      },
+      {
+        "since": 2023,
+        "full": 50,
+        "reduced": 33
+      }
     ], 
     "ER": [ 
       { 
@@ -815,11 +865,16 @@ export const rates: Rates = {
         "reduced": 22 
       } 
     ], 
-    "FR": [ 
+    "FR": [ // France
       { 
         "since": 2017, 
         "full": 44, 
         "reduced": 29 
+      },
+      { 
+        "since": 2023, 
+        "full": 53, 
+        "reduced": 36 
       } 
     ], 
     "FR_LY": [ 
@@ -827,7 +882,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 53, 
         "reduced": 36 
-      } 
+      },
+      { 
+        "since": 2023, 
+        "full": 53, 
+        "reduced": 36 
+      }
     ], 
     "FR_MA": [ 
       { 
@@ -839,6 +899,11 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 46, 
         "reduced": 31 
+      },
+      { 
+        "since": 2023, 
+        "full": 53, 
+        "reduced": 36 
       } 
     ], 
     "FR_PA": [ 
@@ -858,6 +923,11 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 51, 
         "reduced": 34 
+      },
+      { 
+        "since": 2023, 
+        "full": 53, 
+        "reduced": 36 
       } 
     ], 
     "GA": [ 
@@ -872,18 +942,28 @@ export const rates: Rates = {
         "reduced": 35,
       } 
     ], 
-    "GB": [ 
-      { 
+    "GB": [ // United Kingdom
+      {
         "since": 2017, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      { 
+        "since": 2023, 
+        "full": 52, 
+        "reduced": 35 
+      }
     ], 
-    "GB_L": [ 
+    "GB_L": [ // United Kingdom - London
       { 
         "since": 2017, 
         "full": 62, 
         "reduced": 41 
+      },
+      { 
+        "since": 2023, 
+        "full": 66, 
+        "reduced": 44 
       } 
     ], 
     "GD": [ 
@@ -948,18 +1028,23 @@ export const rates: Rates = {
         "reduced": 24 
       } 
     ], 
-    "GR": [ 
+    "GR": [ // Greece
       { 
         "since": 2017, 
         "full": 36, 
         "reduced": 24 
       } 
     ], 
-    "GR_AT": [ 
+    "GR_AT": [ // Greece - Athenes
       { 
         "since": 2017, 
         "full": 46, 
         "reduced": 31 
+      },
+      { 
+        "since": 2023, 
+        "full": 40, 
+        "reduced": 27 
       } 
     ], 
     "GT": [ 
@@ -974,11 +1059,16 @@ export const rates: Rates = {
         "reduced": 23 
       } 
     ], 
-    "GW": [ 
+    "GW": [ // Guinea-Bissau
       { 
         "since": 2017, 
         "full": 24, 
         "reduced": 16 
+      },
+      { 
+        "since": 2023, 
+        "full": 32, 
+        "reduced": 21 
       } 
     ], 
     "GY": [ 
@@ -993,11 +1083,16 @@ export const rates: Rates = {
         "reduced": 30 
       } 
     ], 
-    "HN": [ 
+    "HN": [ // Honduras 
       { 
         "since": 2017, 
         "full": 48, 
         "reduced": 32 
+      },
+      { 
+        "since": 2023, 
+        "full": 57, 
+        "reduced": 38 
       } 
     ], 
     "HR": [ 
@@ -1019,11 +1114,16 @@ export const rates: Rates = {
         "reduced": 33 
       } 
     ], 
-    "HU": [ 
+    "HU": [ // Hungary
       { 
         "since": 2017, 
         "full": 22, 
         "reduced": 15 
+      },
+      { 
+        "since": 2023, 
+        "full": 32, 
+        "reduced": 21 
       } 
     ], 
     "ID": [ 
@@ -1141,11 +1241,16 @@ export const rates: Rates = {
         "reduced": 22 
       } 
     ], 
-    "IS": [ 
+    "IS": [ // Iceland 
       { 
         "since": 2017, 
         "full": 47, 
         "reduced": 32 
+      },
+      { 
+        "since": 2023, 
+        "full": 62, 
+        "reduced": 41 
       } 
     ], 
     "IT": [ 
@@ -1191,11 +1296,16 @@ export const rates: Rates = {
         "reduced": 36 
       } 
     ], 
-    "JO": [ 
+    "JO": [ // Jordan
       { 
         "since": 2017, 
         "full": 46, 
         "reduced": 31 
+      },
+      { 
+        "since": 2023, 
+        "full": 57, 
+        "reduced": 38 
       } 
     ], 
     "JP": [ 
@@ -1368,12 +1478,17 @@ export const rates: Rates = {
         "reduced": 28 
       } 
     ], 
-    "LS": [ 
+    "LS": [ // Lesotho
       { 
         "since": 2017, 
         "full": 24, 
         "reduced": 16 
-      } 
+      },
+      {
+        "since": 2023,
+        "full": 28,
+        "reduced": 19
+      }
     ], 
     "LT": [ 
       { 
@@ -1387,11 +1502,16 @@ export const rates: Rates = {
         "reduced": 17
       } 
     ], 
-    "LU": [ 
+    "LU": [ // Luxembourg
       { 
         "since": 2017, 
         "full": 47, 
         "reduced": 32 
+      },
+      { 
+        "since": 2023, 
+        "full": 63, 
+        "reduced": 42 
       } 
     ], 
     "LV": [ 
@@ -1425,25 +1545,40 @@ export const rates: Rates = {
         "reduced": 28 
       } 
     ], 
-    "MC": [ 
+    "MC": [ // Monaco
       { 
         "since": 2017, 
         "full": 42, 
         "reduced": 28 
+      },
+      { 
+        "since": 2023, 
+        "full": 52, 
+        "reduced": 35 
       } 
     ], 
-    "MD": [ 
+    "MD": [ // Moldova, Republic
       { 
         "since": 2017, 
         "full": 24, 
         "reduced": 16 
+      },
+      { 
+        "since": 2023, 
+        "full": 26, 
+        "reduced": 17 
       } 
     ], 
-    "ME": [ 
+    "ME": [ // Montenegro
       { 
         "since": 2017, 
         "full": 29, 
         "reduced": 20 
+      },
+      { 
+        "since": 2023, 
+        "full": 32, 
+        "reduced": 21 
       } 
     ], 
     "MG": [ 
@@ -1465,7 +1600,7 @@ export const rates: Rates = {
         "reduced": 42 
       } 
     ], 
-    "MK": [ 
+    "MK": [ // North Macedonia
       { 
         "since": 2017, 
         "full": 24, 
@@ -1475,6 +1610,11 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 29, 
         "reduced": 20 
+      },
+      { 
+        "since": 2023, 
+        "full": 27, 
+        "reduced": 18 
       } 
     ], 
     "ML": [ 
@@ -1508,11 +1648,16 @@ export const rates: Rates = {
         "reduced": 18 
       } 
     ], 
-    "MR": [ 
+    "MR": [ // Mauritania
       { 
         "since": 2017, 
         "full": 39, 
         "reduced": 26 
+      },
+      { 
+        "since": 2023, 
+        "full": 35, 
+        "reduced": 24 
       } 
     ], 
     "MT": [ 
@@ -1551,12 +1696,17 @@ export const rates: Rates = {
         "reduced": 35 
       } 
     ], 
-    "MW": [ 
+    "MW": [ // Malawi
       { 
         "since": 2017, 
         "full": 47, 
         "reduced": 32 
-      } 
+      },
+      { 
+        "since": 2023, 
+        "full": 41, 
+        "reduced": 28 
+      }
     ], 
     "MX": [ 
       { 
@@ -1570,11 +1720,16 @@ export const rates: Rates = {
         "reduced": 32
       }
     ], 
-    "MY": [ 
+    "MY": [ // Malaysia
       { 
         "since": 2017, 
         "full": 34, 
         "reduced": 23 
+      },
+      { 
+        "since": 2023, 
+        "full": 36, 
+        "reduced": 24 
       } 
     ], 
     "MZ": [ 
@@ -1630,11 +1785,16 @@ export const rates: Rates = {
         "reduced": 31
       }
     ], 
-    "NI": [ 
+    "NI": [ // Nicaragua
       { 
         "since": 2017, 
         "full": 36, 
         "reduced": 24 
+      },
+      { 
+        "since": 2023, 
+        "full": 46, 
+        "reduced": 31 
       } 
     ], 
     "NL": [ 
@@ -1685,18 +1845,28 @@ export const rates: Rates = {
         "reduced": 37 
       } 
     ], 
-    "OM": [ 
+    "OM": [ // Oman 
       { 
         "since": 2017, 
         "full": 60, 
         "reduced": 40 
+      },
+      { 
+        "since": 2023, 
+        "full": 64, 
+        "reduced": 43 
       } 
     ], 
-    "PA": [ 
+    "PA": [ // Panama
       { 
         "since": 2017, 
         "full": 39, 
         "reduced": 26 
+      },
+      { 
+        "since": 2023, 
+        "full": 41, 
+        "reduced": 28 
       } 
     ], 
     "PE": [ 
@@ -1711,10 +1881,15 @@ export const rates: Rates = {
         "reduced": 23
       }
     ], 
-    "PG": [ 
+    "PG": [ // Papua New Guinea
       { 
         "since": 2017, 
         "full": 60, 
+        "reduced": 40 
+      },
+      { 
+        "since": 2023, 
+        "full": 59, 
         "reduced": 40 
       } 
     ], 
@@ -1809,11 +1984,16 @@ export const rates: Rates = {
         "reduced": 20 
       } 
     ], 
-    "PT": [ 
+    "PT": [ // Portugal
       { 
         "since": 2017, 
         "full": 36, 
         "reduced": 24 
+      },
+      { 
+        "since": 2023, 
+        "full": 32, 
+        "reduced": 21 
       } 
     ], 
     "PW": [ 
@@ -1861,11 +2041,16 @@ export const rates: Rates = {
         "reduced": 21 
       } 
     ], 
-    "RS": [ 
+    "RS": [ // Serbia 
       { 
         "since": 2017, 
         "full": 20, 
         "reduced": 13 
+      },
+      { 
+        "since": 2023, 
+        "full": 27, 
+        "reduced": 18 
       } 
     ], 
     "RU": [ 
@@ -1896,32 +2081,52 @@ export const rates: Rates = {
         "reduced": 19 
       } 
     ], 
-    "RW": [ 
+    "RW": [ // Rwanda
       { 
         "since": 2017, 
         "full": 46, 
         "reduced": 31 
+      },
+      { 
+        "since": 2023, 
+        "full": 44, 
+        "reduced": 29 
       } 
     ], 
-    "SA": [ 
+    "SA": [ // Saudi Arabia
       { 
         "since": 2017, 
         "full": 48, 
         "reduced": 32 
+      },
+      { 
+        "since": 2023, 
+        "full": 56, 
+        "reduced": 37 
       } 
     ], 
-    "SA_JD": [ 
+    "SA_JD": [ // Saudi Arabia - Jeddah 
       { 
         "since": 2017, 
         "full": 38, 
         "reduced": 25 
+      },
+      { 
+        "since": 2023, 
+        "full": 57, 
+        "reduced": 38 
       } 
     ], 
-    "SA_RD": [ 
+    "SA_RD": [ // Saudi Arabia - Riyadh
       { 
         "since": 2017, 
         "full": 48, 
         "reduced": 32 
+      },
+      { 
+        "since": 2023, 
+        "full": 56, 
+        "reduced": 37 
       } 
     ], 
     "SD": [ 
@@ -1936,11 +2141,16 @@ export const rates: Rates = {
         "reduced": 22
       }
     ], 
-    "SE": [ 
+    "SE": [ // Sweden
       { 
         "since": 2017, 
         "full": 50, 
         "reduced": 33 
+      },
+      { 
+        "since": 2023, 
+        "full": 66, 
+        "reduced": 44 
       } 
     ], 
     "SG": [ 
@@ -1955,19 +2165,29 @@ export const rates: Rates = {
         "reduced": 36 
       } 
     ], 
-    "SI": [ 
+    "SI": [ // Slovenia
       { 
         "since": 2017, 
         "full": 33, 
         "reduced": 22 
+      },
+      { 
+        "since": 2023, 
+        "full": 38, 
+        "reduced": 25 
       } 
     ], 
-    "SK": [ 
+    "SK": [ // Slovakia
       { 
         "since": 2017, 
         "full": 24, 
         "reduced": 16 
-      } 
+      },
+      { 
+        "since": 2023, 
+        "full": 33, 
+        "reduced": 22 
+      }
     ], 
     "SL": [ 
       { 
@@ -2026,11 +2246,16 @@ export const rates: Rates = {
         "reduced": 32 
       } 
     ], 
-    "SV": [ 
+    "SV": [ // El Salvador 
       { 
         "since": 2017, 
         "full": 44, 
         "reduced": 29 
+      },
+      { 
+        "since": 2023, 
+        "full": 65, 
+        "reduced": 44
       } 
     ], 
     "SY": [ 
@@ -2182,11 +2407,16 @@ export const rates: Rates = {
         "reduced": 31
       }
     ], 
-    "TZ": [ 
+    "TZ": [ // Tanzania
       { 
         "since": 2017, 
         "full": 47, 
         "reduced": 32 
+      },
+      { 
+        "since": 2023, 
+        "full": 44, 
+        "reduced": 29 
       } 
     ], 
     "UA": [ 
@@ -2213,74 +2443,124 @@ export const rates: Rates = {
         "reduced": 28
       }
     ], 
-    "US": [ 
+    "US": [ // United States
       { 
         "since": 2017, 
         "full": 51, 
         "reduced": 34 
+      },
+      { 
+        "since": 2023, 
+        "full": 59, 
+        "reduced": 40 
       } 
     ], 
-    "US_AT": [ 
+    "US_AT": [ // United States - Atlanta
       { 
         "since": 2017, 
         "full": 62, 
         "reduced": 41 
+      },
+      { 
+        "since": 2023, 
+        "full": 77, 
+        "reduced": 52 
       } 
     ], 
-    "US_BS": [ 
+    "US_BS": [ // United States - Boston
       { 
         "since": 2017, 
         "full": 58, 
         "reduced": 39 
-      } 
-    ], 
-    "US_CH": [ 
+      },
       { 
-        "since": 2017, 
-        "full": 54, 
-        "reduced": 36 
-      } 
-    ], 
-    "US_HU": [ 
-      { 
-        "since": 2017, 
+        "since": 2023, 
         "full": 63, 
         "reduced": 42 
       } 
     ], 
-    "US_LA": [ 
+    "US_CH": [ // United States - Chicago
+      { 
+        "since": 2017, 
+        "full": 54, 
+        "reduced": 36 
+      },
+      { 
+        "since": 2023, 
+        "full": 65, 
+        "reduced": 44 
+      } 
+    ], 
+    "US_HU": [ // United States - Houston
+      { 
+        "since": 2017, 
+        "full": 63, 
+        "reduced": 42 
+      },
+      { 
+        "since": 2023, 
+        "full": 62, 
+        "reduced": 41 
+      } 
+    ], 
+    "US_LA": [ // United States - Los Angeles
       { 
         "since": 2017, 
         "full": 56, 
         "reduced": 37 
-      } 
-    ], 
-    "US_MI": [ 
+      },
       { 
-        "since": 2017, 
+        "since": 2023, 
         "full": 64, 
         "reduced": 43 
       } 
     ], 
-    "US_NYC": [ 
+    "US_MI": [ // United States - Miami 
+      { 
+        "since": 2017, 
+        "full": 64, 
+        "reduced": 43 
+      },
+      { 
+        "since": 2023, 
+        "full": 65, 
+        "reduced": 44 
+      } 
+    ], 
+    "US_NYC": [ // United States - New York City
       { 
         "since": 2017, 
         "full": 58, 
         "reduced": 39 
-      } 
+      },
+      { 
+        "since": 2023, 
+        "full": 66, 
+        "reduced": 44 
+      }
     ], 
-    "US_SF": [ 
+    "US_SF": [ // United States - San Francisco
       { 
         "since": 2017, 
         "full": 51, 
         "reduced": 34 
+      },
+      { 
+        "since": 2023, 
+        "full": 59, 
+        "reduced": 40 
       } 
     ], 
-    "US_WDC": [ 
+    "US_WDC": [ // United States - Washington, D.C.
       { 
         "since": 2017, 
         "full": 62, 
         "reduced": 41 
+      },
+      { 
+        "since": 2023, 
+        "full": 66, 
+        "reduced": 44 
       } 
     ], 
     "UY": [ 
@@ -2355,17 +2635,27 @@ export const rates: Rates = {
         "reduced": 28 
       } 
     ], 
-    "WS": [ 
+    "WS": [ // Samoa
       { 
         "since": 2017, 
         "full": 29, 
         "reduced": 20 
+      },
+      { 
+        "since": 2023, 
+        "full": 39, 
+        "reduced": 26 
       } 
     ], 
-    "XK": [ 
+    "XK": [ // Kosovo
       { 
         "since": 2017, 
         "full": 23, 
+        "reduced": 16 
+      },
+      { 
+        "since": 2023, 
+        "full": 24, 
         "reduced": 16 
       } 
     ], 
@@ -2376,32 +2666,52 @@ export const rates: Rates = {
         "reduced": 16 
       } 
     ], 
-    "ZA": [ 
+    "ZA": [ // South Africa
       { 
         "since": 2017, 
         "full": 22, 
         "reduced": 15 
-      } 
-    ], 
-    "ZA_CT": [ 
+      },
       { 
-        "since": 2017, 
-        "full": 27, 
-        "reduced": 18 
-      } 
-    ], 
-    "ZA_JH": [ 
-      { 
-        "since": 2017, 
+        "since": 2023, 
         "full": 29, 
         "reduced": 20 
       } 
     ], 
-    "ZM": [ 
+    "ZA_CT": [ // South Africa - Cape Town
+      { 
+        "since": 2017, 
+        "full": 27, 
+        "reduced": 18 
+      },
+      { 
+        "since": 2023, 
+        "full": 33, 
+        "reduced": 22 
+      } 
+    ], 
+    "ZA_JH": [ // South Africa - Johannesburg
+      { 
+        "since": 2017, 
+        "full": 29, 
+        "reduced": 20 
+      },
+      { 
+        "since": 2023, 
+        "full": 36, 
+        "reduced": 24 
+      } 
+    ], 
+    "ZM": [ // Zambia
       { 
         "since": 2017, 
         "full": 36, 
         "reduced": 24 
+      },
+      { 
+        "since": 2023, 
+        "full": 38, 
+        "reduced": 25 
       } 
     ], 
     "ZW": [ 
