@@ -12,7 +12,7 @@ interface Rates {
 
 export const rates: Rates = {
   fromYear: 2017,
-  toYear: 2023,
+  toYear: 2024,
   countries: { 
     "AD": [ 
       { 
@@ -115,7 +115,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 50,
+        "reduced": 33
+      }
     ], 
     "AU": [ 
       { 
@@ -127,9 +132,14 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 57,
+        "reduced": 38
+      }
     ], 
-    "AU_CA": [ 
+    "AU_CA": [ // Australia - Canberra
       { 
         "since": 2017, 
         "full": 58, 
@@ -139,9 +149,14 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 74,
+        "reduced": 49
+      }
     ], 
-    "AU_SY": [ 
+    "AU_SY": [ // Australia - Sydney
       { 
         "since": 2017, 
         "full": 59, 
@@ -151,7 +166,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 68, 
         "reduced": 45 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 57,
+        "reduced": 38
+      }
     ], 
     "AZ": [ // Azerbaijan
       { 
@@ -177,7 +197,7 @@ export const rates: Rates = {
         "reduced": 16,
       }
     ], 
-    "BB": [ 
+    "BB": [ // Barbados
       { 
         "since": 2017, 
         "full": 58, 
@@ -187,7 +207,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 52, 
         "reduced": 35 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 54,
+        "reduced": 36
+      }
     ], 
     "BD": [ 
       { 
@@ -307,9 +332,14 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 46,
+        "reduced": 31
+      }
     ], 
-    "BR_BR": [ 
+    "BR_BR": [ // Brasil - Brasilia
       { 
         "since": 2017, 
         "full": 53, 
@@ -319,9 +349,14 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 57, 
         "reduced": 38 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 51,
+        "reduced": 34
+      }
     ], 
-    "BR_RI": [ 
+    "BR_RI": [ // Brasil - Rio de Janeiro
       { 
         "since": 2017, 
         "full": 47, 
@@ -331,14 +366,24 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 57, 
         "reduced": 38 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 69,
+        "reduced": 46
+      }
     ], 
-    "BR_SP": [ 
+    "BR_SP": [ // Brasil - Sao Paulo
       { 
         "since": 2017, 
         "full": 53, 
         "reduced": 36 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 46,
+        "reduced": 31
+      }
     ], 
     "BW": [ 
       { 
@@ -374,7 +419,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 47, 
         "reduced": 32 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 54,
+        "reduced": 36
+      }
     ], 
     "CA_OT": [ 
       { 
@@ -386,7 +436,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 47, 
         "reduced": 32 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 62,
+        "reduced": 41
+      }
     ], 
     "CA_TO": [ 
       { 
@@ -398,7 +453,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 51, 
         "reduced": 34 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 54,
+        "reduced": 36
+      }
     ], 
     "CA_VA": [ 
       { 
@@ -410,7 +470,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 50, 
         "reduced": 33 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 63,
+        "reduced": 42
+      }
     ], 
     "CD": [ 
       { 
@@ -429,7 +494,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 46, 
         "reduced": 31 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 53,
+        "reduced": 36
+      }
     ], 
     "CG": [ 
       { 
@@ -496,7 +566,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 50, 
         "reduced": 33 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 56,
+        "reduced": 37
+      }
     ], 
     "CN": [ 
       { 
@@ -522,11 +597,16 @@ export const rates: Rates = {
         "reduced": 28
       }
     ], 
-    "CN_HK": [ 
+    "CN_HK": [ // China - Hong Kong
       { 
         "since": 2017, 
         "full": 74, 
         "reduced": 49 
+      },
+      {
+        "since": 2024,
+        "full": 71,
+        "reduced": 48
       }
     ], 
     "CN_KN": [ 
@@ -599,14 +679,24 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 46, 
         "reduced": 31 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 51,
+        "reduced": 34
+      }
     ], 
     "CV": [ 
       { 
         "since": 2017, 
         "full": 30, 
         "reduced": 20 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 38,
+        "reduced": 25
+      }
     ], 
     "CY": [ // Cyprus
       { 
@@ -654,7 +744,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 65, 
         "reduced": 44 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 77,
+        "reduced": 52
+      }
     ], 
     "DK": [ // Denmark
       { 
@@ -685,7 +780,7 @@ export const rates: Rates = {
         "reduced": 30 
       } 
     ], 
-    "DO": [ 
+    "DO": [
       { 
         "since": 2017, 
         "full": 40, 
@@ -695,7 +790,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 50,
+        "reduced": 33
+      }
     ], 
     "DZ": [ // Algeria
       { 
@@ -772,7 +872,7 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 34, 
         "reduced": 23 
-      } 
+      }
     ], 
     "ES_BC": [ 
       { 
@@ -796,7 +896,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 36,
+        "reduced": 24
+      }
     ], 
     "ES_MA": [ 
       { 
@@ -808,7 +913,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 42,
+        "reduced": 28
+      }
     ], 
     "ES_PM": [ 
       { 
@@ -820,7 +930,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 35, 
         "reduced": 24 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 44,
+        "reduced": 29
+      }
     ], 
     "ET": [ 
       { 
@@ -844,14 +959,24 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 50, 
         "reduced": 33 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 54,
+        "reduced": 36
+      }
     ], 
     "FJ": [ 
       { 
         "since": 2017, 
         "full": 34, 
         "reduced": 23 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 32,
+        "reduced": 21
+      }
     ], 
     "FM": [ 
       { 
@@ -988,7 +1113,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 35, 
         "reduced": 24 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 45,
+        "reduced": 30
+      }
     ], 
     "GH": [ 
       { 
@@ -1019,14 +1149,24 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 46, 
         "reduced": 31 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 59,
+        "reduced": 40
+      }
     ], 
-    "GQ": [ 
+    "GQ": [ // Äquatorialguinea
       { 
         "since": 2017, 
         "full": 36, 
         "reduced": 24 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 42,
+        "reduced": 28,
+      },
     ], 
     "GR": [ // Greece
       { 
@@ -1263,7 +1403,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 42,
+        "reduced": 28
+      }
     ], 
     "IT_MI": [ 
       { 
@@ -1275,7 +1420,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 42,
+        "reduced": 28
+      }
     ], 
     "IT_RO": [ 
       { 
@@ -1287,14 +1437,24 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 40, 
         "reduced": 27 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 48,
+        "reduced": 32
+      }
     ], 
     "JM": [ 
       { 
         "since": 2017, 
         "full": 54, 
         "reduced": 36 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 39,
+        "reduced": 26
+      }
     ], 
     "JO": [ // Jordan
       { 
@@ -1330,7 +1490,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 66, 
         "reduced": 44 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 50,
+        "reduced": 33
+      }
     ], 
     "KE": [ 
       { 
@@ -1428,7 +1593,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 33, 
         "reduced": 22 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 35,
+        "reduced": 24
+      }
     ], 
     "LB": [ 
       { 
@@ -1440,7 +1610,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 59, 
         "reduced": 40 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 69,
+        "reduced": 46
+      }
     ], 
     "LC": [ 
       { 
@@ -1476,7 +1651,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 42, 
         "reduced": 28 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 36,
+        "reduced": 24
+      }
     ], 
     "LS": [ // Lesotho
       { 
@@ -1543,7 +1723,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 42, 
         "reduced": 28 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 41,
+        "reduced": 28
+      }
     ], 
     "MC": [ // Monaco
       { 
@@ -1591,7 +1776,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 34, 
         "reduced": 23 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 33,
+        "reduced": 22
+      }
     ], 
     "MH": [ 
       { 
@@ -1646,7 +1836,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 27, 
         "reduced": 18 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 23,
+        "reduced": 16
+      }
     ], 
     "MR": [ // Mauritania
       { 
@@ -1682,7 +1877,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 54, 
         "reduced": 36 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 44,
+        "reduced": 29
+      }
     ], 
     "MV": [ 
       { 
@@ -1742,7 +1942,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 38, 
         "reduced": 25 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 51,
+        "reduced": 34
+      }
     ], 
     "NA": [ 
       { 
@@ -1819,7 +2024,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 80, 
         "reduced": 53 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 75,
+        "reduced": 50
+      }
     ], 
     "NP": [ 
       { 
@@ -1843,7 +2053,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 56, 
         "reduced": 37 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 58,
+        "reduced": 39
+      }
     ], 
     "OM": [ // Oman 
       { 
@@ -1903,7 +2118,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 33, 
         "reduced": 22 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 41,
+        "reduced": 28
+      }
     ], 
     "PK": [ 
       { 
@@ -2013,7 +2233,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 38, 
         "reduced": 25 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 39,
+        "reduced": 26
+      }
     ], 
     "QA": [ 
       { 
@@ -2199,7 +2424,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 48, 
         "reduced": 32 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 57,
+        "reduced": 38
+      }
     ], 
     "SM": [ 
       { 
@@ -2237,7 +2467,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 34, 
         "reduced": 23 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 51,
+        "reduced": 34
+      }
     ], 
     "ST": [ 
       { 
@@ -2275,7 +2510,12 @@ export const rates: Rates = {
         "since": 2018, 
         "full": 64, 
         "reduced": 43 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 42,
+        "reduced": 28
+      }
     ], 
     "TG": [ 
       { 
@@ -2393,7 +2633,12 @@ export const rates: Rates = {
         "since": 2019, 
         "full": 45, 
         "reduced": 30 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 66,
+        "reduced": 44
+      }
     ], 
     "TW": [ 
       { 
@@ -2587,7 +2832,12 @@ export const rates: Rates = {
         "since": 2017, 
         "full": 52, 
         "reduced": 35 
-      } 
+      },
+      {
+        "since": 2024,
+        "full": 48,
+        "reduced": 32
+      }
     ], 
     "VC": [ 
       { 
