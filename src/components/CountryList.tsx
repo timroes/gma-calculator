@@ -15,7 +15,7 @@ interface CountryListProps {
 
 export function CountryList(props: CountryListProps) {
 	const classes = classnames('countrylist__select', props.className);
-	const countries = useMemo(() => getAllCountries().map(country => ({ value: country.code, label: country.name })), []);
+	const countries = useMemo(() => getAllCountries().map(country => ({ value: country.code, label: country.name, flag: country.flag ?? country.code.substring(0, 2).toLocaleLowerCase() })), []);
 	const value = useMemo(() => countries.find(value => value.value === props.value), [countries, props.value]);
 	return (
 		<Select
@@ -26,12 +26,20 @@ export function CountryList(props: CountryListProps) {
 			inputId={props.id}
 			isClearable={false}
 			isMulti={false}
-			components={{ Option: (props) => (
-				<components.Option {...props}>
-					<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.value.substring(0, 2).toLowerCase()}`)} />
-					{props.label}
-				</components.Option>
-			) }}
+			components={{ 
+				Option: (props) => (
+					<components.Option {...props}>
+						<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.flag}`)} />
+						{props.label}
+					</components.Option>
+				),
+				SingleValue: (props) => (
+					<components.SingleValue {...props}>
+						<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.flag}`)} />
+						{props.children}
+					</components.SingleValue>
+				)
+			}}
 		/>
 	);
 }

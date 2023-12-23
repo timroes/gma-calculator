@@ -42,7 +42,7 @@ export default [
 	{ name: 'Chile', code: 'CL' },
 	{ name: 'China', code: 'CN' },
 	{ name: 'China - Chengdu', code: 'CN_CH' },
-	{ name: 'China - Hongkong', code: 'CN_HK' },
+	{ name: 'China - Hongkong', code: 'CN_HK', flag: 'hk' },
 	{ name: 'China - Kanton', code: 'CN_KN' },
 	{ name: 'China - Peking', code: 'CN_PK' },
 	{ name: 'China - Shanghai', code: 'CN_SH' },

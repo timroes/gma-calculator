@@ -3,6 +3,7 @@ import countries from './data';
 export interface Country {
 	name: string;
 	code: string;
+	flag?: string;
 }
 
 export function getAllCountries(): ReadonlyArray<Country> {
