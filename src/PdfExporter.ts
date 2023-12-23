@@ -1,13 +1,10 @@
-// @ts-ignore
-import pdfmake from 'pdfmake/build/pdfmake.js';
-// @ts-ignore
-import vfsFonts from 'pdfmake/build/vfs_fonts.js';
+import type { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
+
+import pdfMake from 'pdfmake/build/pdfmake';
+
 import { getCountryNameByCode } from './countries';
 import { CalculationService, Day } from './CalculationService';
 import { Segments, Segment } from './Segments';
-
-// Hack to get this working with webpack (see https://github.com/bpampuch/pdfmake/issues/939#issuecomment-318846576)
-pdfmake.vfs = vfsFonts.pdfMake.vfs;
 
 export class PdfExporter {
 
@@ -46,7 +43,7 @@ export class PdfExporter {
 	}
 
 	private generateDocDefinition(segments: Segment[], result: ReturnType<CalculationService['calculate']>) {
-		const docDef = {
+		const docDef: TDocumentDefinitions = {
 			content: [
 				{ text: 'German Meal Allowance', style: 'header' },
 				{ text: 'Locations:', style: 'location' },
@@ -71,20 +68,20 @@ export class PdfExporter {
 				header: {
 					fontSize: 18,
 					bold: true,
-					margin: [0, 0, 0, 10]
+					margin: [0, 0, 0, 10],
 				},
 				total: {
 					bold: true,
 					alignment: 'right'
 				},
 				list: {
-					margin: [0, 0, 0, 10]
+					margin: [0, 0, 0, 10],
 				},
 				location: {
 					bold: true
 				},
 				locationList: {
-					margin: [0, 0, 0, 8]
+					margin: [0, 0, 0, 8],
 				},
 				rate: {
 					alignment: 'right'
@@ -92,7 +89,7 @@ export class PdfExporter {
 				fallbackWarning: {
 					bold: true,
 					color: 'red',
-					margin: [0, 10, 0, 0]
+					margin: [0, 10, 0, 0],
 				}
 			},
 			defaultStyle: {
@@ -102,7 +99,7 @@ export class PdfExporter {
 
 		// If any day used a fallback rate, show a warning below the table.
 		if (result.days.filter((day: Day) => day.fallbackFrom).length > 0) {
-			docDef.content.push({
+			(docDef.content as Content[]).push({
 				text: '* The rates for this year have not yet been published. Rates from previous years have been used for these dates.',
 				style: 'fallbackWarning'
 			});
@@ -128,6 +125,16 @@ export class PdfExporter {
 		const segments = this.segments.get();
 		const result = this.calculationService.calculate(segments);
 		const filename = this.getFilename(segments, result);
-		pdfmake.createPdf(this.generateDocDefinition(segments, result)).download(filename);
+
+		const pdfFonts = {
+			Roboto: {
+				normal: new URL("@fontsource/roboto/files/roboto-latin-400-normal.woff", import.meta.url).href,
+				bold: new URL("@fontsource/roboto/files/roboto-latin-700-normal.woff", import.meta.url).href,
+				italics: new URL("@fontsource/roboto/files/roboto-latin-400-italic.woff", import.meta.url).href,
+				bolditalics: new URL("@fontsource/roboto/files/roboto-latin-700-italic.woff", import.meta.url).href,
+			},
+		};
+
+		pdfMake.createPdf(this.generateDocDefinition(segments, result), undefined, pdfFonts).download(filename);
 	}
 }
