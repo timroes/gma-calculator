@@ -4,7 +4,7 @@ import Select, { components } from 'react-select';
 import { getAllCountries } from '../countries';
 
 import './CountryList.css';
-import 'flag-icon-css/css/flag-icon.min.css';
+import 'flag-icon-css/css/flag-icons.css';
 
 interface CountryListProps {
 	className?: string;
@@ -20,15 +20,15 @@ export function CountryList(props: CountryListProps) {
 	return (
 		<Select
 			className={classes}
-			onChange={(value: any) => value && props.onChange(value.value)}
+			onChange={(value) => value && props.onChange(value.value)}
 			options={countries}
 			value={value}
-			inputProps={{ id: props.id }}
-			clearable={false}
+			inputId={props.id}
+			isClearable={false}
 			isMulti={false}
 			components={{ Option: (props) => (
 				<components.Option {...props}>
-					<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.value.substr(0, 2).toLowerCase()}`)} />
+					<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.value.substring(0, 2).toLowerCase()}`)} />
 					{props.label}
 				</components.Option>
 			) }}
