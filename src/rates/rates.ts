@@ -732,6 +732,11 @@ export const rates: Rates = {
         "since": 2020,
         "full": 28,
         "reduced": 14
+      },
+      {
+        "since": 2024,
+        "full": 30,
+        "reduced": 15
       }
     ], 
     "DJ": [ 
