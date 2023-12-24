@@ -1,6 +1,5 @@
 import moment from 'moment';
 import { getRateForCountry } from './rates';
-import { getCountryNameByCode } from './countries';
 import { Segment } from './Segments';
 
 export type ExcludeOption = 'breakfast' | 'lunch' | 'dinner';
@@ -8,7 +7,6 @@ export type ExcludeOption = 'breakfast' | 'lunch' | 'dinner';
 export interface Day {
 	id: string;
 	country: string;
-	countryName: string;
 	date: moment.Moment;
 	excludeBreakfast: boolean;
 	excludeLunch: boolean;
@@ -96,7 +94,6 @@ export class CalculationService {
 				id: dateString,
 				date: day,
 				country: segment.country,
-				countryName: getCountryNameByCode(segment.country),
 				excludeBreakfast: !!this.exclude.breakfast[dateString],
 				excludeLunch: !!this.exclude.lunch[dateString],
 				excludeDinner: !!this.exclude.dinner[dateString],

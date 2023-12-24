@@ -2,9 +2,9 @@ import type { Content, TDocumentDefinitions } from 'pdfmake/interfaces';
 
 import pdfMake from 'pdfmake/build/pdfmake';
 
-import { getCountryNameByCode } from './countries';
 import { CalculationService, Day } from './CalculationService';
 import { Segments, Segment } from './Segments';
+import { rates } from './rates';
 
 export class PdfExporter {
 
@@ -33,7 +33,7 @@ export class PdfExporter {
 			return countries;
 		}, []);
 
-		const countryStrings = countries.map(c => `${getCountryNameByCode(c)} (${c})`);
+		const countryStrings = countries.map(c => `${rates.countries[c].names.en} (${c})`);
 		countryStrings.sort();
 
 		return {

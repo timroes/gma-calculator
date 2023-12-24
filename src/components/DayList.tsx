@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Moment } from 'moment';
 import { ExcludeOption, Day } from '../CalculationService';
 import './DayList.css';
+import { rates } from '../rates';
 
 interface DayListProps {
 	days: Day[];
@@ -18,7 +19,7 @@ export class DayList extends Component<DayListProps> {
 		return (<tr key={day.id}>
 				{ this.props.showCountries &&
 					<td>
-						<abbr className="daylist__country" title={day.countryName}>{day.country}</abbr>
+						<abbr className="daylist__country" title={rates.countries[day.country].names.en}>{day.country}</abbr>
 					</td>
 				}
 				<td>{ day.date.format('ddd') }</td>

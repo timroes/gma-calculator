@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import classnames from 'classnames';
 import Select, { components } from 'react-select';
-import { getAllCountries } from '../countries';
 
 import './CountryList.css';
 import 'flag-icon-css/css/flag-icons.css';
+import { rates } from '../rates';
 
 interface CountryListProps {
 	className?: string;
@@ -15,7 +15,11 @@ interface CountryListProps {
 
 export function CountryList(props: CountryListProps) {
 	const classes = classnames('countrylist__select', props.className);
-	const countries = useMemo(() => getAllCountries().map(country => ({ value: country.code, label: country.name, flag: country.flag ?? country.code.substring(0, 2).toLocaleLowerCase() })), []);
+	const countries = useMemo(() => {
+		return Object.entries(rates.countries)
+			.map(([code, info]) => ({ value: code, label: info.names.en, flag: info.flag ?? code.substring(0, 2).toLocaleLowerCase() }))
+			.sort((a, b) => a.label.localeCompare(b.label));
+	}, []);
 	const value = useMemo(() => countries.find(value => value.value === props.value), [countries, props.value]);
 	return (
 		<Select
