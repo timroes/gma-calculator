@@ -1,7 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './App';
 // import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.querySelector('main'));
+createRoot(document.querySelector('main')!).render(<App />);
 // registerServiceWorker();
