@@ -26,14 +26,8 @@ export class PdfExporter {
 	}
 
 	private generateCountryList(segments: Segment[]) {
-		const countries = segments.reduce<string[]>((countries, segment) => {
-			if (countries.indexOf(segment.country) === -1) {
-				countries.push(segment.country);
-			}
-			return countries;
-		}, []);
-
-		const countryStrings = countries.map(c => `${rates.countries[c].names.en} (${c})`);
+		const countries = new Set(segments.map(s => s.country));
+		const countryStrings = Array.from(countries).map(c => `${rates.countries[c].names.en} (${c})`);
 		countryStrings.sort();
 
 		return {
