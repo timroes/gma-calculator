@@ -64,6 +64,7 @@ td:last-child {
 .daylist__warning-icon:hover + .daylist__warning,
 .daylist__warning-icon:focus + .daylist__warning {
 	display: block;
+	z-index: 10;
 }
 
 .daylist__warning-icon {
