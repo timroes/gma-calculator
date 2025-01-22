@@ -46,7 +46,7 @@
   "devDependencies": {
     "@types/pdfmake": "^0.2.8",
     "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.10",
+    "vite": "^5.4.12",
     "vite-plugin-checker": "^0.6.2"
   },
   "resolutions": {
