@@ -43,7 +43,7 @@ export class DayList extends Component<DayListProps> {
 					</label>
 				</td>
 				<td className="daylist__rate">
-					{ day.fallbackFrom &&
+					{day.fallbackFrom &&
 						<span>
 							<button type="button" className="daylist__warning-icon" role="tooltip" aria-labelledby={`${day.id}-fallbackRate`}></button>
 							<div id={`${day.id}-fallbackRate`} className="daylist__warning" aria-hidden="true">
@@ -51,7 +51,15 @@ export class DayList extends Component<DayListProps> {
 							</div>
 						</span>
 					}
-					{ day.countryWithoutRate &&
+					{day.replacedByCountry && (
+						<span>
+							<button type="button" className='daylist__warning-icon' role="tooltip" aria-labelledby={`${day.id}-replacedBy`}></button>
+							<div id={`${day.id}-replacedBy`} className="daylist__warning" aria-hidden="true">
+								This location has been replaced by "{rates.countries[day.replacedByCountry].names.en}". Please use this country instead.
+							</div>
+						</span>
+					)}
+					{!day.replacedByCountry && day.countryWithoutRate &&
 						<span>
 							<button type="button" className="daylist__warning-icon" role="tooltip" aria-labelledby={`${day.id}-fallbackRate`}></button>
 							<div id={`${day.id}-fallbackRate`} className="daylist__warning" aria-hidden="true">

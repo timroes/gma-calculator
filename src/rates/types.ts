@@ -7,7 +7,11 @@ export interface Rate {
 interface CountryInformation {
   names: {
     en: string;
-  },
+  };
+  replaced?:{
+    since: number;
+    by: string;
+  };
   rates: Rate[];
   flag?: string;
 }
@@ -15,5 +19,5 @@ interface CountryInformation {
 export interface Rates {
   fromYear: number;
   toYear: number;
-  countries: { [year: string]: CountryInformation };
+  countries: { [countryCode: string]: CountryInformation };
 }

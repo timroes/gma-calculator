@@ -17,6 +17,7 @@ export interface Day {
 	baseRate: number;
 	fallbackFrom?: number;
 	countryWithoutRate: boolean;
+	replacedByCountry?: string;
 }
 
 interface ExcludeMap {
@@ -74,6 +75,7 @@ export class CalculationService {
 			rate: Math.max(price, 0),
 			fallbackFrom: baseRatesForDay.fallbackFrom,
 			countryWithoutRate: baseRatesForDay.full === 0,
+			replacedByCountry: baseRatesForDay.replacedByCountry
 		};
 	}
 

@@ -17,7 +17,7 @@ export function CountryList(props: CountryListProps) {
 	const classes = classnames('countrylist__select', props.className);
 	const countries = useMemo(() => {
 		return Object.entries(rates.countries)
-			.map(([code, info]) => ({ value: code, label: info.names.en, flag: info.flag ?? code.substring(0, 2).toLocaleLowerCase() }))
+			.map(([code, info]) => ({ value: code, label: info.replaced ? `${info.names.en} (use "${rates.countries[info.replaced.by].names.en}" from ${info.replaced.since}+)` : info.names.en, flag: info.flag ?? code.substring(0, 2).toLocaleLowerCase() }))
 			.sort((a, b) => a.label.localeCompare(b.label));
 	}, []);
 	const value = useMemo(() => countries.find(value => value.value === props.value), [countries, props.value]);
