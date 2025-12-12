@@ -2,7 +2,7 @@ import { Rates } from "./types";
 
 export const rates: Rates = {
   fromYear: 2017,
-  toYear: 2025,
+  toYear: 2026,
   countries: {
     "AD": {
       "names": {
@@ -18,6 +18,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 41,
           "reduced": 28
+        },
+        {
+          "since": 2026,
+          "full": 45,
+          "reduced": 30
         }
       ]
     },
@@ -35,6 +40,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 65,
           "reduced": 44
+        },
+        {
+          "since": 2026,
+          "full": 81,
+          "reduced": 54
         }
       ]
     },
@@ -81,6 +91,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 27,
           "reduced": 18
+        },
+        {
+          "since": 2026,
+          "full": 33,
+          "reduced": 22
         }
       ]
     },
@@ -142,6 +157,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 35,
           "reduced": 24
+        },
+        {
+          "since": 2026,
+          "full": 42,
+          "reduced": 28
         }
       ]
     },
@@ -264,6 +284,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 23,
           "reduced": 16
+        },
+        {
+          "since": 2026,
+          "full": 32,
+          "reduced": 21
         }
       ]
     },
@@ -347,6 +372,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 38,
           "reduced": 25
+        },
+        {
+          "since": 2026,
+          "full": 39,
+          "reduced": 26
         }
       ]
     },
@@ -359,6 +389,11 @@ export const rates: Rates = {
           "since": 2017,
           "full": 22,
           "reduced": 15
+        },
+        {
+          "since": 2026,
+          "full": 38,
+          "reduced": 25
         }
       ]
     },
@@ -393,6 +428,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 36,
           "reduced": 24
+        },
+        {
+          "since": 2026,
+          "full": 58,
+          "reduced": 39
         }
       ]
     },
@@ -566,6 +606,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 46,
           "reduced": 31
+        },
+        {
+          "since": 2026,
+          "full": 40,
+          "reduced": 27
         }
       ]
     },
@@ -583,6 +628,11 @@ export const rates: Rates = {
           "since": 2018,
           "full": 20,
           "reduced": 13
+        },
+        {
+          "since": 2026,
+          "full": 21,
+          "reduced": 14
         }
       ]
     },
@@ -727,6 +777,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 62,
           "reduced": 41
+        },
+        {
+          "since": 2026,
+          "full": 53,
+          "reduced": 36
         }
       ]
     },
@@ -744,6 +799,23 @@ export const rates: Rates = {
           "since": 2021,
           "full": 64,
           "reduced": 43
+        },
+        {
+          "since": 2026,
+          "full": 70,
+          "reduced": 47
+        }
+      ]
+    },
+    "CH_BE": {
+      "names": {
+        "en": "Switzerland - Bern"
+      },
+      "rates": [
+        {
+          "since": 2026,
+          "full": 82,
+          "reduced": 55
         }
       ]
     },
@@ -761,6 +833,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 66,
           "reduced": 44
+        },
+        {
+          "since": 2026,
+          "full": 70,
+          "reduced": 47
         }
       ]
     },
@@ -777,6 +854,11 @@ export const rates: Rates = {
         {
           "since": 2021,
           "full": 59,
+          "reduced": 40
+        },
+        {
+          "since": 2026,
+          "full": 60,
           "reduced": 40
         }
       ]
@@ -836,6 +918,10 @@ export const rates: Rates = {
       "names": {
         "en": "China - Chengdu"
       },
+      replaced: {
+        since: 2026,
+        by: "CN",
+      },
       "rates": [
         {
           "since": 2017,
@@ -864,12 +950,21 @@ export const rates: Rates = {
           "since": 2024,
           "full": 71,
           "reduced": 48
+        },
+        {
+          "since": 2026,
+          "full": 83,
+          "reduced": 56
         }
       ]
     },
     "CN_KN": {
       "names": {
         "en": "China - Kanton"
+      },
+      replaced: {
+        since: 2026,
+        by: "CN" 
       },
       "rates": [
         {
@@ -898,6 +993,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 30,
           "reduced": 20
+        },
+        {
+          "since": 2026,
+          "full": 57,
+          "reduced": 38
         }
       ]
     },
@@ -915,6 +1015,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 58,
           "reduced": 39
+        },
+        {
+          "since": 2026,
+          "full": 48,
+          "reduced": 32
         }
       ]
     },
@@ -1188,6 +1293,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 29,
           "reduced": 20
+        },
+        {
+          "since": 2026,
+          "full": 39,
+          "reduced": 26
         }
       ]
     },
@@ -1430,45 +1540,6 @@ export const rates: Rates = {
         }
       ]
     },
-    "FR_LY": {
-      "names": {
-        "en": "France - Lyon"
-      },
-      "rates": [
-        {
-          "since": 2017,
-          "full": 53,
-          "reduced": 36
-        },
-        {
-          "since": 2023,
-          "full": 53,
-          "reduced": 36
-        }
-      ]
-    },
-    "FR_MA": {
-      "names": {
-        "en": "France - Marseille"
-      },
-      "rates": [
-        {
-          "since": 2017,
-          "full": 51,
-          "reduced": 34
-        },
-        {
-          "since": 2018,
-          "full": 46,
-          "reduced": 31
-        },
-        {
-          "since": 2023,
-          "full": 53,
-          "reduced": 36
-        }
-      ]
-    },
     "FR_PA": {
       "names": {
         "en": "France - Paris"
@@ -1478,28 +1549,6 @@ export const rates: Rates = {
           "since": 2017,
           "full": 58,
           "reduced": 39
-        }
-      ]
-    },
-    "FR_ST": {
-      "names": {
-        "en": "France - Strasbourg"
-      },
-      "rates": [
-        {
-          "since": 2017,
-          "full": 48,
-          "reduced": 32
-        },
-        {
-          "since": 2018,
-          "full": 51,
-          "reduced": 34
-        },
-        {
-          "since": 2023,
-          "full": 53,
-          "reduced": 36
         }
       ]
     },
@@ -1855,6 +1904,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 58,
           "reduced": 39
+        },
+        {
+          "since": 2026,
+          "full": 64,
+          "reduced": 43
         }
       ]
     },
@@ -1872,6 +1926,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 66,
           "reduced": 44
+        },
+        {
+          "since": 2026,
+          "full": 59,
+          "reduced": 40
         }
       ]
     },
@@ -2206,6 +2265,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 51,
           "reduced": 34
+        },
+        {
+          "since": 2026,
+          "full": 48,
+          "reduced": 32
         }
       ]
     },
@@ -2223,6 +2287,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 27,
           "reduced": 18
+        },
+        {
+          "since": 2026,
+          "full": 35,
+          "reduced": 24
         }
       ]
     },
@@ -2291,6 +2360,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 48,
           "reduced": 32
+        },
+        {
+          "since": 2026,
+          "full": 39,
+          "reduced": 26
         }
       ]
     },
@@ -2308,6 +2382,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 56,
           "reduced": 37
+        },
+        {
+          "since": 2026,
+          "full": 63,
+          "reduced": 42
         }
       ]
     },
@@ -2403,6 +2482,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 56,
           "reduced": 37
+        },
+        {
+          "since": 2026,
+          "full": 57,
+          "reduced": 38
         }
       ]
     },
@@ -2471,6 +2555,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 26,
           "reduced": 17
+        },
+        {
+          "since": 2026,
+          "full": 48,
+          "reduced": 32
         }
       ]
     },
@@ -2505,6 +2594,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 35,
           "reduced": 24
+        },
+        {
+          "since": 2026,
+          "full": 46,
+          "reduced": 31
         }
       ]
     },
@@ -2624,6 +2718,11 @@ export const rates: Rates = {
           "since": 2017,
           "full": 63,
           "reduced": 42
+        },
+        {
+          "since": 2026,
+          "full": 45,
+          "reduced": 30
         }
       ]
     },
@@ -2663,6 +2762,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 38,
           "reduced": 25
+        },
+        {
+          "since": 2026,
+          "full": 42,
+          "reduced": 28
         }
       ]
     },
@@ -2736,6 +2840,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 46,
           "reduced": 31
+        },
+        {
+          "since": 2026,
+          "full": 59,
+          "reduced": 40
         }
       ]
     },
@@ -2814,6 +2923,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 48,
           "reduced": 32
+        },
+        {
+          "since": 2026,
+          "full": 40,
+          "reduced": 27
         }
       ]
     },
@@ -2870,6 +2984,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 30,
           "reduced": 20
+        },
+        {
+          "since": 2026,
+          "full": 28,
+          "reduced": 19
         }
       ]
     },
@@ -2909,6 +3028,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 46,
           "reduced": 31
+        },
+        {
+          "since": 2026,
+          "full": 52,
+          "reduced": 35
         }
       ]
     },
@@ -2943,6 +3067,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 47,
           "reduced": 32
+        },
+        {
+          "since": 2026,
+          "full": 58,
+          "reduced": 39
         }
       ]
     },
@@ -2982,6 +3111,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 36,
           "reduced": 24
+        },
+        {
+          "since": 2026,
+          "full": 33,
+          "reduced": 22
         }
       ]
     },
@@ -3055,6 +3189,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 34,
           "reduced": 23
+        },
+        {
+          "since": 2026,
+          "full": 52,
+          "reduced": 35
         }
       ]
     },
@@ -3111,6 +3250,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 34,
           "reduced": 23
+        },
+        {
+          "since": 2026,
+          "full": 41,
+          "reduced": 28
         }
       ]
     },
@@ -3174,6 +3318,10 @@ export const rates: Rates = {
       "names": {
         "en": "Poland - Gdańsk/Danzig"
       },
+      replaced: {
+        since: 2025,
+        by: "PL"
+      },
       "rates": [
         {
           "since": 2017,
@@ -3184,17 +3332,16 @@ export const rates: Rates = {
           "since": 2019,
           "full": 30,
           "reduced": 20
-        },
-        {
-          "since": 2025,
-          "full": 34,
-          "reduced": 23
         }
       ]
     },
     "PL_KR": {
       "names": {
         "en": "Poland - Kraków/Krakau"
+      },
+      replaced: {
+        since: 2025,
+        by: "PL"
       },
       "rates": [
         {
@@ -3206,11 +3353,6 @@ export const rates: Rates = {
           "since": 2019,
           "full": 27,
           "reduced": 18
-        },
-        {
-          "since": 2025,
-          "full": 34,
-          "reduced": 23
         }
       ]
     },
@@ -3296,6 +3438,11 @@ export const rates: Rates = {
           "since": 2017,
           "full": 56,
           "reduced": 37
+        },
+        {
+          "since": 2026,
+          "full": 81,
+          "reduced": 54
         }
       ]
     },
@@ -3313,6 +3460,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 27,
           "reduced": 18
+        },
+        {
+          "since": 2026,
+          "full": 38,
+          "reduced": 25
         }
       ]
     },
@@ -3386,18 +3538,6 @@ export const rates: Rates = {
         },
         {
           "since": 2025,
-          "full": 28,
-          "reduced": 19
-        }
-      ]
-    },
-    "RU_YK": {
-      "names": {
-        "en": "Russian Federation - Yekaterinburg"
-      },
-      "rates": [
-        {
-          "since": 2017,
           "full": 28,
           "reduced": 19
         }
@@ -3609,6 +3749,11 @@ export const rates: Rates = {
           "since": 2021,
           "full": 42,
           "reduced": 28
+        },
+        {
+          "since": 2026,
+          "full": 48,
+          "reduced": 32
         }
       ]
     },
@@ -3733,6 +3878,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 39,
           "reduced": 26
+        },
+        {
+          "since": 2026,
+          "full": 36,
+          "reduced": 24
         }
       ]
     },
@@ -3864,6 +4014,10 @@ export const rates: Rates = {
       "names": {
         "en": "Turkey - Istanbul"
       },
+      replaced: {
+        since: 2025,
+        by: "TR"
+      },
       "rates": [
         {
           "since": 2017,
@@ -3874,11 +4028,6 @@ export const rates: Rates = {
           "since": 2020,
           "full": 26,
           "reduced": 17
-        },
-        {
-          "since": 2025,
-          "full": 24,
-          "reduced": 16
         }
       ]
     },
@@ -3979,6 +4128,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 26,
           "reduced": 17
+        },
+        {
+          "since": 2026,
+          "full": 33,
+          "reduced": 22
         }
       ]
     },
@@ -3996,6 +4150,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 41,
           "reduced": 28
+        },
+        {
+          "since": 2026,
+          "full": 45,
+          "reduced": 30
         }
       ]
     },
@@ -4200,6 +4359,11 @@ export const rates: Rates = {
           "since": 2017,
           "full": 34,
           "reduced": 23
+        },
+        {
+          "since": 2026,
+          "full": 32,
+          "reduced": 21
         }
       ]
     },
@@ -4261,6 +4425,11 @@ export const rates: Rates = {
           "since": 2020,
           "full": 45,
           "reduced": 30
+        },
+        {
+          "since": 2026,
+          "full": 51,
+          "reduced": 34
         }
       ]
     },
