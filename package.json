@@ -5,23 +5,21 @@
   "type": "module",
   "homepage": "https://gma-calculator.timroes.de",
   "dependencies": {
-    "@fontsource/roboto": "^5.0.8",
-    "@types/classnames": "^2.3.1",
+    "@fontsource/roboto": "^5.2.9",
     "@types/jest": "29.5.11",
     "@types/node": "20.10.5",
     "@types/react": "18.2.45",
-    "@types/react-datepicker": "^4.19.4",
+    "@types/react-datepicker": "^4.19.6",
     "@types/react-dom": "18.2.18",
-    "@types/react-select": "^5.0.1",
-    "classnames": "^2.3.2",
-    "flag-icon-css": "^4.1.7",
-    "moment": "^2.29.4",
-    "pdfmake": "^0.2.8",
-    "react": "^18.2.0",
+    "classnames": "^2.5.1",
+    "flag-icons": "^7.5.0",
+    "moment": "^2.30.1",
+    "pdfmake": "^0.2.20",
+    "react": "^18.3.1",
     "react-datepicker": "^4.25.0",
-    "react-dom": "^18.2.0",
-    "react-select": "^5.8.0",
-    "typescript": "^5.3.3"
+    "react-dom": "^18.3.1",
+    "react-select": "^5.10.2",
+    "typescript": "^5.9.3"
   },
   "scripts": {
     "start": "vite",
@@ -44,10 +42,10 @@
     ]
   },
   "devDependencies": {
-    "@types/pdfmake": "^0.2.8",
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.10",
-    "vite-plugin-checker": "^0.6.2"
+    "@types/pdfmake": "^0.2.12",
+    "@vitejs/plugin-react": "^4.7.0",
+    "vite": "^5.4.21",
+    "vite-plugin-checker": "^0.6.4"
   },
   "resolutions": {
     "@types/react": "18.2.45",

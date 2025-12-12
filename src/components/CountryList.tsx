@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import Select, { components } from 'react-select';
 
 import './CountryList.css';
-import 'flag-icon-css/css/flag-icons.css';
+import 'flag-icons/css/flag-icons.min.css';
 import { rates } from '../rates';
 
 interface CountryListProps {
@@ -33,13 +33,13 @@ export function CountryList(props: CountryListProps) {
 			components={{ 
 				Option: (props) => (
 					<components.Option {...props}>
-						<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.flag}`)} />
+						<span className={classnames('countrylist__icon', 'fi', `fi-${props.data.flag}`)} />
 						{props.label}
 					</components.Option>
 				),
 				SingleValue: (props) => (
 					<components.SingleValue {...props}>
-						<span className={classnames('countrylist__icon', 'flag-icon', `flag-icon-${props.data.flag}`)} />
+						<span className={classnames('countrylist__icon', 'fi', `fi-${props.data.flag}`)} />
 						{props.children}
 					</components.SingleValue>
 				)
