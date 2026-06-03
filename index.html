@@ -10,7 +10,6 @@
     -->
     <link rel="manifest" href="/manifest.json">
     <link rel="shortcut icon" href="/favicon-48.png">
-    <link rel="stylesheet" href="/styles.css">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -25,29 +24,11 @@
     <script async defer data-domain="gma-calculator.timroes.de" src="https://plausible.io/js/plausible.js"></script>
   </head>
   <body>
-    <header class="banner">
-      <h1>German Meal Allowance Calculator</h1>
-    </header>
-
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
 
-    <main>
-      <svg class="loading-spinner" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;">
-       <rect x="0" y="10" width="4" height="10" fill="#333"></rect>
-       <rect x="8" y="10" width="4" height="10" fill="#333"></rect>
-       <rect x="16" y="10" width="4" height="10" fill="#333"></rect>
-     </svg>
-    </main>
-
-    <footer>
-      by <a href="https://www.timroes.de" rel="noopener">Tim Roes</a> //
-      report issues via
-      <a href="mailto:mail@timroes.de?subject=%5BGMA%20Calculator%5D">Mail</a> |
-      <a href="https://github.com/timroes/gma-calculator/issues" rel="noopener">GitHub</a>
-    </footer>
+    <div id="root"></div>
 
     <script type="module" src="/src/index.tsx"></script>
   </body>

@@ -1,9 +1,7 @@
 import React from 'react';
-import DatePicker from 'react-datepicker';
 import { Moment } from 'moment';
 
-import 'react-datepicker/dist/react-datepicker.css';
-import './DateRange.css';
+import { DatePicker } from './DatePicker';
 
 interface DateRangeProps {
 	to?: Moment;
@@ -15,41 +13,26 @@ interface DateRangeProps {
 }
 
 export function DateRange(props: DateRangeProps) {
+	const fromDate = props.from ? props.from.toDate() : undefined;
+	const toDate = props.to ? props.to.toDate() : undefined;
 	return (
-		<div className={props.className}>
-			<div className="daterange__group">
-				<label
-					htmlFor={`${props.idPrefix}_from`}
-					className="daterange__label">
-					From
-				</label>
-				<DatePicker
-					id={`${props.idPrefix}_from`}
-					className="daterange__input"
-					autoComplete="off"
-					value={props.from ? props.from.format('YYYY-MM-DD') : ''}
-					selected={props.from ? props.from.toDate() : undefined}
-					onChange={(date) => props.onChange(date as Date | null, props.to ? props.to.toDate() : null)}
-					disabled={props.disableFrom}
-					shouldCloseOnSelect={true}
-					required={true}/>
-			</div>
-			<div className="daterange__group">
-				<label
-					htmlFor={`${props.idPrefix}_to`}
-					className="daterange__label">
-					To
-				</label>
-				<DatePicker
-					id={`${props.idPrefix}_to`}
-					className="daterange__input"
-					autoComplete="off"
-					value={props.to ? props.to.format('YYYY-MM-DD') : ''}
-					selected={props.to ? props.to.toDate() : undefined}
-					minDate={props.from ? props.from.toDate() : undefined}
-					onChange={(date) => props.onChange(props.from ? props.from.toDate() : null, date as Date | null)}
-					required={true}/>
-			</div>
+		<div className={`${props.className ?? ''} sm:flex sm:gap-4`}>
+			<DatePicker
+				className="mt-4 sm:mt-0 sm:flex-1"
+				id={`${props.idPrefix}_from`}
+				label="From"
+				value={fromDate}
+				disabled={props.disableFrom}
+				onChange={(date) => props.onChange(date ?? null, toDate ?? null)}
+			/>
+			<DatePicker
+				className="mt-4 sm:mt-0 sm:flex-1"
+				id={`${props.idPrefix}_to`}
+				label="To"
+				value={toDate}
+				minDate={fromDate}
+				onChange={(date) => props.onChange(fromDate ?? null, date ?? null)}
+			/>
 		</div>
 	);
 }
