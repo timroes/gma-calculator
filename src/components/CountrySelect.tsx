@@ -17,6 +17,7 @@ interface CountrySelectProps {
 	onChange: (country: string) => void;
 	id: string;
 	value: string;
+	showLegacyRegions: boolean;
 }
 
 interface CountryOption {
@@ -50,6 +51,14 @@ export function CountrySelect(props: CountrySelectProps) {
 	const countries = useMemo<CountryOption[]>(() => {
 		const currentYear = new Date().getFullYear();
 		return Object.entries(rates.countries)
+			.filter(([code, info]) => {
+				// "Legacy" regions were replaced before the current year, so they were
+				// not valid this year or last year. Hide them by default unless the
+				// user opted to show them — but always keep the currently selected
+				// region visible so its value never silently disappears.
+				const isLegacy = info.replaced != null && info.replaced.since < currentYear;
+				return !isLegacy || props.showLegacyRegions || code === props.value;
+			})
 			.map(([code, info]) => ({
 				value: code,
 				label: info.names.en,
@@ -61,7 +70,7 @@ export function CountrySelect(props: CountrySelectProps) {
 				struck: info.replaced != null && currentYear >= info.replaced.since,
 			}))
 			.sort((a, b) => a.label.localeCompare(b.label));
-	}, []);
+	}, [props.showLegacyRegions, props.value]);
 
 	const selected = useMemo(
 		() => countries.find((c) => c.value === props.value) ?? null,

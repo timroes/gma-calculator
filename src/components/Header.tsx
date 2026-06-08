@@ -3,13 +3,21 @@ import { Menu, Mail } from 'lucide-react';
 
 import {
 	DropdownMenu,
+	DropdownMenuCheckboxItem,
 	DropdownMenuContent,
 	DropdownMenuGroup,
 	DropdownMenuItem,
 	DropdownMenuLabel,
+	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from './ui/dropdown-menu';
+import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 import logo from '../logo.png';
+
+interface HeaderProps {
+	showLegacyRegions: boolean;
+	onShowLegacyRegionsChange: (show: boolean) => void;
+}
 
 function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
 	return (
@@ -19,7 +27,7 @@ function GithubIcon(props: React.SVGProps<SVGSVGElement>) {
 	);
 }
 
-export function Header() {
+export function Header(props: HeaderProps) {
 	return (
 		<header className="relative mx-auto mt-5 flex max-w-[min(800px,90vw)] items-center gap-3 rounded-full bg-white py-2 pr-3 shadow-md">
 			<div className="absolute ml-5 rounded-full bg-gradient-to-br from-orange-400 to-teal-500 p-[3px] shadow-[0_0_12px_rgba(45,212,191,0.55)]">
@@ -41,6 +49,24 @@ export function Header() {
 					<Menu className="size-5" />
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end" className="w-52">
+					<DropdownMenuLabel>Settings</DropdownMenuLabel>
+					<DropdownMenuGroup>
+						<Tooltip>
+							<TooltipTrigger asChild>
+								<DropdownMenuCheckboxItem
+									checked={props.showLegacyRegions}
+									onCheckedChange={props.onShowLegacyRegionsChange}
+									onSelect={(event) => event.preventDefault()}
+								>
+									Show deprecated regions
+								</DropdownMenuCheckboxItem>
+							</TooltipTrigger>
+							<TooltipContent side="left">
+								Enable regions and countries that are no longer being used since at least a year.
+							</TooltipContent>
+						</Tooltip>
+					</DropdownMenuGroup>
+					<DropdownMenuSeparator />
 					<DropdownMenuLabel>Report issue</DropdownMenuLabel>
 					<DropdownMenuGroup>
 						<DropdownMenuItem asChild>

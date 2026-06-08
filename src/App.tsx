@@ -30,6 +30,7 @@ interface AppState {
   segments: Segment[];
   isGeneratingPdf: boolean;
   mealAlertDismissed: boolean;
+  showLegacyRegions: boolean;
 }
 
 class App extends Component<{}, AppState> {
@@ -47,8 +48,13 @@ class App extends Component<{}, AppState> {
       days: [],
       isGeneratingPdf: false,
       mealAlertDismissed: readMealAlertDismissed(),
+      showLegacyRegions: false,
     };
   }
+
+  setShowLegacyRegions = (showLegacyRegions: boolean) => {
+    this.setState({ showLegacyRegions });
+  };
 
   dismissMealAlert = () => {
     try {
@@ -145,7 +151,8 @@ class App extends Component<{}, AppState> {
           <CountrySelect
             id={`country-list${index}`}
             onChange={this.handleCountryChange.bind(this, index)}
-            value={segment.country} />
+            value={segment.country}
+            showLegacyRegions={this.state.showLegacyRegions} />
         </Field>
         <DateRange
           idPrefix={`daterange${index}`}
@@ -188,7 +195,9 @@ class App extends Component<{}, AppState> {
     return (
       <TooltipProvider>
         <main className="text-center">
-        <Header />
+        <Header
+          showLegacyRegions={this.state.showLegacyRegions}
+          onShowLegacyRegionsChange={this.setShowLegacyRegions} />
         <section aria-label="Trip configuration" className="mx-auto mt-6 max-w-[720px] px-8 text-left md:flex md:max-w-none md:flex-nowrap md:items-start md:[justify-content:safe_center] md:gap-8 md:overflow-x-auto md:py-6 md:snap-x md:snap-mandatory">
           { this.state.segments.map(this.renderSegment) }
         </section>
